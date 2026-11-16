@@ -69,7 +69,13 @@ def _fetch(src):
         cap = capture(f"agency_{src['id']}", url, wait_ms=src.get("wait_ms", 4000))
         text, links = _html_to_text(cap["html"], url)
         return text, links, []
-    r = SESSION.get(url, timeout=60, headers={"User-Agent": BROWSER_UA})
+    r = SESSION.get(url, timeout=60, headers={"User-Agent": BROWSER_UA, "Accept": "text/html,application/xhtml+xml,*/*;q=0.8",
+                                              "Accept-Language": "en-US,en;q=0.9"})
+    if r.status_code in (401, 403, 406, 429, 503):  # bot wall: try a real browser
+        from ..browser import capture
+        cap = capture(f"agency_{src['id']}", url, wait_ms=src.get("wait_ms", 5000))
+        text, links = _html_to_text(cap["html"], url)
+        return text, links, []
     r.raise_for_status()
     if "pdf" in r.headers.get("content-type", ""):
         return _pdf_text(r.content), [], []
@@ -160,6 +166,8 @@ def fetch():
                 text, links, feats = _fetch(src)
                 STATUS[src["id"]] = {"ok": False, "error": "no API key", "chars": len(text), "links": len(links)}
                 print(f"  {src['id']}: reachable, {len(text)} chars, {len(links)} links, {len(feats)} features")
+                if len(text) < 1500:
+                    print("     sample: " + clean(text)[:400])
             except Exception as e:
                 STATUS[src["id"]] = {"ok": False, "error": f"{type(e).__name__}: {e}"[:300]}
                 print(f"  {src['id']}: ERROR {type(e).__name__}: {str(e)[:200]}")
