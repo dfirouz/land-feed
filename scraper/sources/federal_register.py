@@ -30,6 +30,7 @@ def _sale_type(title):
 
 
 def _sale_date(text):
+    text = re.sub(r"\b([ap])\.m\.", r"\1m", text or "", flags=re.I)
     # Look for the auction / bid opening date
     for pat in [
         rf"(?:auction|bid opening|sale)\s+(?:will\s+(?:be\s+held|take\s+place|begin|open|occur)|is\s+scheduled)[^.]{{0,120}}?{DATE_RE}",

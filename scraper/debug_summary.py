@@ -13,7 +13,12 @@ for d in sorted(p for p in root.glob("*") if p.is_dir()):
     for l in links[:80]:
         print(f"  {l['text'][:60]!r} -> {l['href'][:140]}")
     for j in sorted(d.glob("json_*.json")):
-        pl = json.loads(j.read_text())
-        s = json.dumps(pl["data"])
-        print(f"--- json {pl['url'][:160]} ({len(s)} chars)")
-        print("   " + s[:1200])
+        raw = j.read_text()
+        try:
+            pl = json.loads(raw); url, s = pl["url"], json.dumps(pl["data"])
+        except Exception:
+            url, s = j.name, raw
+        if any(x in url for x in ("monitor.azure", "analytics", "config.1.cfg")):
+            continue
+        print(f"--- json {url[:200]} ({len(s)} chars)")
+        print("   " + s[:2500])

@@ -54,7 +54,7 @@ def capture(name, url, wait_ms=6000, scroll=True, clicks=()):
     (out / "links.json").write_text(json.dumps(links, indent=1))
     for i, pl in enumerate(payloads):
         safe = re.sub(r"[^\w.-]+", "_", pl["url"])[-120:]
-        (out / f"json_{i:02d}_{safe}.json").write_text(json.dumps(pl, indent=1)[:2_000_000])
+        (out / f"json_{i:02d}_{safe}.json").write_text(json.dumps(pl, indent=1))
     return {"html": html, "text": text, "links": links, "json": payloads}
 
 
