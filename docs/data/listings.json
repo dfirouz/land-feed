@@ -1,20 +1,20 @@
 {
- "updated": "2026-11-16T19:50+00:00",
+ "updated": "2026-11-16T19:53+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 11,
-   "at": "2026-11-16T19:50+00:00"
+   "at": "2026-11-16T19:53+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-16T19:50+00:00"
+   "at": "2026-11-16T19:53+00:00"
   },
   "energynet": {
-   "ok": true,
-   "count": 2,
-   "at": "2026-11-16T19:50+00:00"
+   "ok": false,
+   "error": "'coordinates'",
+   "at": "2026-11-16T19:53+00:00"
   }
  },
  "listings": [
@@ -39,6 +39,7 @@
    "lat": 36.21413,
    "lon": -115.014398,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "98a3ffd0f27c",
    "price_per_acre": null,
@@ -67,6 +68,7 @@
    "lat": 33.991658,
    "lon": -106.939136,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "879a68149301",
    "price_per_acre": null,
@@ -95,6 +97,7 @@
    "lat": 29.871812,
    "lon": -93.164948,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "6bc0356ffed4",
    "price_per_acre": null,
@@ -123,6 +126,7 @@
    "lat": 39.009025,
    "lon": -110.7211,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "6ab78af8e873",
    "price_per_acre": 1099.74,
@@ -151,6 +155,7 @@
    "lat": 42.984623,
    "lon": -105.524752,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "fc7d1fb09d8e",
    "price_per_acre": 675.0,
@@ -179,6 +184,7 @@
    "lat": 33.72761,
    "lon": -114.038806,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "dc9c8204c819",
    "price_per_acre": 546.88,
@@ -207,6 +213,7 @@
    "lat": 39.246052294117646,
    "lon": -117.5587944117647,
    "loc_precision": "state",
+   "geometry": null,
    "extra": {},
    "id": "9616772efe34",
    "price_per_acre": null,
@@ -235,6 +242,7 @@
    "lat": null,
    "lon": null,
    "loc_precision": null,
+   "geometry": null,
    "extra": {},
    "id": "f794d405dd62",
    "price_per_acre": 105416.67,
@@ -263,6 +271,7 @@
    "lat": 36.21413,
    "lon": -115.014398,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "0002a8583b85",
    "price_per_acre": null,
@@ -291,6 +300,7 @@
    "lat": 39.022213,
    "lon": -119.197425,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "0f8210eac62b",
    "price_per_acre": 368.5,
@@ -319,6 +329,7 @@
    "lat": 40.610864,
    "lon": -108.217154,
    "loc_precision": "county",
+   "geometry": null,
    "extra": {},
    "id": "a41e98cc5dcf",
    "price_per_acre": 7981.22,
