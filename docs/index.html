@@ -133,7 +133,7 @@ function filtered() {
   const minAc = +$("#minAc").value || 0, maxP = +$("#maxPrice").value || 0, maxPpa = +$("#maxPpa").value || 0;
   const noDirect = $("#noDirect").checked, showPast = $("#showPast").checked;
   return ALL.filter(l => {
-    if (!showPast && (l.removed || (l.sale_date && l.sale_date < today) || /ended|passed|sold|complete/i.test(l.stage || ""))) return false;
+    if (!showPast && (l.removed || (l.sale_date && l.sale_date < today) || /ended|passed|sold|complete|older notice/i.test(l.stage || ""))) return false;
     if (st && l.state !== st) return false;
     if (src && l.source !== src) return false;
     if (minAc && (l.acres || 0) < minAc) return false;

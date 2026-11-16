@@ -56,7 +56,7 @@ def _detail(pid):
         return {}
     t = cap["text"]
     out = {}
-    m = re.search(r"(?:Total Acre(?:s|age)|Lot Size|Land Area|Acreage|Site Area|Acres)\s*:?\s*\n?\s*(\d[\d,]*(?:\.\d+)?)\s*(acres?|ac|sq\.?\s*ft|square feet|sf)?", t, re.I)
+    m = re.search(r"(?:Total Acre(?:s|age)|Lot Size|Land Area|Acreage|Site Area|Acres)\s*:?\s*\n?\s*(\d[\d,]*(?:\.\d+)?)[ \t]*(acres?|ac\b|sq\.?[ \t]*ft|square feet|sf\b)?", t, re.I)
     if m:
         v = float(m.group(1).replace(",", ""))
         unit = (m.group(2) or "acres").lower()

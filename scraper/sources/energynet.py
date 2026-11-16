@@ -109,6 +109,7 @@ def fetch():
                 county += " County"
             m = re.search(r"([\d,]+(?:\.\d+)?)", lot.get("acreage") or "")
             acres = float(m.group(1).replace(",", "")) if m else None
+            acres = acres or None
             rule = lot.get("rule") or {}
             bid = lot.get("startingBid") or None
             price, ptype = None, None

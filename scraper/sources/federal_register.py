@@ -103,6 +103,8 @@ def fetch():
         stage = "Notice of Realty Action"
         if sale_date and sale_date < dt.date.today().isoformat():
             stage = "Sale date passed"
+        elif not sale_date and d.get("publication_date", "9") < (dt.date.today() - dt.timedelta(days=240)).isoformat():
+            stage = "Older notice (check status)"
         price = _fmv(raw)
         out.append(Listing(
             source="federal_register",
