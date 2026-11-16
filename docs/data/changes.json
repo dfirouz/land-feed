@@ -1,6 +1,33 @@
 [
  {
   "date": "2026-11-16",
+  "kind": "Updated",
+  "detail": "sale_date: \u2014 \u2192 2026-11-18",
+  "id": "b8888263dc38",
+  "title": "Utah State Trust Lands November 12-18, 2026",
+  "state": "UT",
+  "url": "https://app.efficientmarkets.com/salegroup/7587"
+ },
+ {
+  "date": "2026-11-16",
+  "kind": "New",
+  "detail": "",
+  "id": "caefd38a754f",
+  "title": "Wyoming Office of State Lands, December 15, 2026",
+  "state": "WY",
+  "url": "https://app.efficientmarkets.com/salegroup/7633"
+ },
+ {
+  "date": "2026-11-16",
+  "kind": "Removed",
+  "detail": "No longer listed",
+  "id": "a03d3064d90b",
+  "title": "Real Estate",
+  "state": null,
+  "url": "https://www.energynet.com/govt_listing.pl?sg=61e0740b-d573-433b-9806-3ae9e001f967"
+ },
+ {
+  "date": "2026-11-16",
   "kind": "New",
   "detail": "",
   "id": "98a3ffd0f27c",

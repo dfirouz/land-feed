@@ -1,20 +1,20 @@
 {
- "updated": "2026-11-16T19:48+00:00",
+ "updated": "2026-11-16T19:50+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 11,
-   "at": "2026-11-16T19:48+00:00"
+   "at": "2026-11-16T19:50+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-16T19:48+00:00"
+   "at": "2026-11-16T19:50+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-16T19:48+00:00"
+   "at": "2026-11-16T19:50+00:00"
   }
  },
  "listings": [
@@ -328,6 +328,62 @@
   },
   {
    "source": "energynet",
+   "source_id": "7587",
+   "title": "Utah State Trust Lands November 12-18, 2026",
+   "url": "https://app.efficientmarkets.com/salegroup/7587",
+   "agency": "Utah SITLA",
+   "state": "UT",
+   "county": "Sevier County",
+   "city": null,
+   "acres": null,
+   "price": null,
+   "price_type": null,
+   "sale_type": "Online auction",
+   "stage": "Open for bidding",
+   "sale_date": "2026-11-18",
+   "comment_deadline": null,
+   "published": null,
+   "summary": "State Land Sale.   covering ? acres. Ends Nov 18, 2026, 11:10 AM MST / 12:10 PM CST",
+   "lat": 38.746824,
+   "lon": -111.81193,
+   "loc_precision": "county",
+   "extra": {},
+   "id": "b8888263dc38",
+   "price_per_acre": null,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16",
+   "removed": false
+  },
+  {
+   "source": "energynet",
+   "source_id": "7633",
+   "title": "Wyoming Office of State Lands, December 15, 2026",
+   "url": "https://app.efficientmarkets.com/salegroup/7633",
+   "agency": "1.7 acres for commercial, mixed-use, or industrial development",
+   "state": "WY",
+   "county": "Sheridan County",
+   "city": null,
+   "acres": null,
+   "price": null,
+   "price_type": null,
+   "sale_type": "Online auction",
+   "stage": "Open for bidding",
+   "sale_date": "2026-12-15",
+   "comment_deadline": null,
+   "published": null,
+   "summary": "Land Development Request for Proposal.   covering ? acres. Ends Dec 15, 2026, 5:00 PM MST / 6:00 PM CST",
+   "lat": 44.781369,
+   "lon": -106.881211,
+   "loc_precision": "county",
+   "extra": {},
+   "id": "caefd38a754f",
+   "price_per_acre": null,
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16",
+   "removed": false
+  },
+  {
+   "source": "energynet",
    "source_id": "61e0740b-d573-433b-9806-3ae9e001f967",
    "title": "Real Estate",
    "url": "https://www.energynet.com/govt_listing.pl?sg=61e0740b-d573-433b-9806-3ae9e001f967",
@@ -352,35 +408,7 @@
    "price_per_acre": null,
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16",
-   "removed": false
-  },
-  {
-   "source": "energynet",
-   "source_id": "7587",
-   "title": "State Land Sale | Utah State Trust Lands November 12-18, 2026",
-   "url": "https://www.energynet.com/govt_listing.pl?sg=7587",
-   "agency": "State land office",
-   "state": "UT",
-   "county": "Sevier County",
-   "city": null,
-   "acres": 0.62,
-   "price": null,
-   "price_type": null,
-   "sale_type": "Online auction",
-   "stage": "Open for bidding",
-   "sale_date": null,
-   "comment_deadline": null,
-   "published": null,
-   "summary": "Efficient Markets Listings Getting Started About Us News & Insights Help Sign In Sign Up Free BROWSE All Listings Indigo Government Oil & Gas AFE Alternative Energy Real Estate 200 mi \u00a9 Mapbox \u00a9 OpenStreetMap Improve this map Use two fingers to move the map Use ctrl + scroll to zoom the map Loading",
-   "lat": 38.746824,
-   "lon": -111.81193,
-   "loc_precision": "county",
-   "extra": {},
-   "id": "b8888263dc38",
-   "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false
+   "removed": true
   }
  ]
 }
