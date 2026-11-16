@@ -1,47 +1,182 @@
 {
-  "_help": "One entry per agency listing page. kind: page (default) | pdf | arcgis (feature layer URL). render: true for JavaScript-built pages. follow: regex on link text/URL for detail pages or PDFs to read too (max_follow caps it). level: federal | state | local. category: surplus | forfeiture | tax_sale. Set enabled:false to pause a source.",
-  "sources": [
-    {"id": "fl-dep", "name": "FL DEP State Lands", "agency": "Florida DEP – Division of State Lands", "level": "state", "state": "FL",
-     "url": "https://floridadep.gov/lands/bureau-real-estate-services/content/surplus-properties", "follow": "bid|offer|invitation|surplus.*(pdf|property)", "max_follow": 8},
-    {"id": "fl-fdot", "name": "FDOT surplus", "agency": "Florida DOT – Right of Way", "level": "state", "state": "FL",
-     "url": "https://rowsurplus.fdot.gov/", "render": true, "wait_ms": 6000},
-    {"id": "fl-turnpike", "name": "Florida's Turnpike", "agency": "Florida's Turnpike Enterprise", "level": "state", "state": "FL",
-     "url": "https://floridasturnpike.com/?p=925", "follow": "surplus|for sale|bid", "max_follow": 6},
-    {"id": "fl-swfwmd-gis", "name": "SWFWMD lands for sale (GIS)", "agency": "Southwest Florida Water Management District", "level": "state", "state": "FL",
-     "kind": "arcgis", "url": "https://www25.swfwmd.state.fl.us/arcgis11/rest/services/prjSurplus/DistrictLandForSale/MapServer/1"},
-    {"id": "fl-swfwmd", "name": "SWFWMD land sale", "agency": "Southwest Florida Water Management District", "level": "state", "state": "FL",
-     "url": "https://www.swfwmd.state.fl.us/business/land-sale", "follow": "\\.pdf|surplus|bid", "max_follow": 8},
-    {"id": "fl-sfwmd", "name": "SFWMD real estate", "agency": "South Florida Water Management District", "level": "state", "state": "FL",
-     "url": "https://www.sfwmd.gov/doing-business-with-us/real-estate", "follow": "surplus|intention to sell|bid_spec|rfb", "max_follow": 8},
-    {"id": "fl-sjrwmd", "name": "SJRWMD real estate", "agency": "St. Johns River Water Management District", "level": "state", "state": "FL",
-     "url": "https://www.sjrwmd.com/?p=7620", "follow": "surplus|for sale|bid", "max_follow": 6},
-
-    {"id": "us-irs", "name": "IRS auctions", "agency": "Internal Revenue Service", "level": "federal", "category": "forfeiture",
-     "url": "https://irsauctions.gov/auction/items", "render": true, "follow": "/ad/", "max_follow": 20},
-    {"id": "us-treasury", "name": "Treasury forfeiture auctions", "agency": "U.S. Treasury (CWS Marketing)", "level": "federal", "category": "forfeiture",
-     "url": "https://www.cwsmarketing.com/?p=14513", "render": true},
-    {"id": "us-treasury-rp", "name": "Treasury real property", "agency": "U.S. Treasury – TEOAF", "level": "federal", "category": "forfeiture",
-     "url": "https://www.treasury.gov/auctions/treasury/rp/", "follow": "flyer|auction", "max_follow": 15},
-
-    {"id": "az-asld", "name": "Arizona State Land auctions", "agency": "Arizona State Land Department", "level": "state", "state": "AZ",
-     "url": "https://land.az.gov/upcoming-auctions", "follow": "notice|flyer", "max_follow": 12},
-    {"id": "az-adot", "name": "ADOT surplus land", "agency": "Arizona DOT – Right of Way", "level": "state", "state": "AZ",
-     "url": "https://azdot.gov/business/right-way-properties/vacant-land-and-commercial-properties-sale"},
-    {"id": "ca-caltrans", "name": "Caltrans excess land", "agency": "Caltrans – Right of Way", "level": "state", "state": "CA",
-     "url": "https://dot.ca.gov/programs/right-of-way/excess-lands-properties-for-sale", "follow": "properties-for-sale-or-lease/.+\\.pdf", "max_follow": 15},
-    {"id": "mn-dnr", "name": "Minnesota DNR land sales", "agency": "Minnesota DNR", "level": "state", "state": "MN",
-     "url": "https://www.dnr.state.mn.us/lands_minerals/landsales.html", "follow": "landsale|parcel|data sheet", "max_follow": 8},
-    {"id": "mi-dnr", "name": "Michigan DNR land for sale", "agency": "Michigan DNR", "level": "state", "state": "MI",
-     "url": "https://www.michigan.gov/LandForSale", "render": true},
-    {"id": "ok-odot", "name": "ODOT land for sale", "agency": "Oklahoma DOT", "level": "state", "state": "OK",
-     "url": "https://oklahoma.gov/odot/business-center/land-for-sale.html", "follow": "bid-openings|land-for-sale/", "max_follow": 10},
-    {"id": "ia-dot", "name": "Iowa DOT properties", "agency": "Iowa DOT – Right of Way", "level": "state", "state": "IA",
-     "url": "https://iowadot.gov/rightofway/Properties-for-sale"},
-
-    {"id": "govdeals-re", "name": "GovDeals real estate", "agency": "GovDeals (city, county, state sellers)", "level": "local",
-     "url": "https://www.govdeals.com/en/real-estate", "render": true, "wait_ms": 8000},
-
-    {"id": "bid4assets", "name": "Bid4Assets county sales", "agency": "Bid4Assets (county tax sales)", "level": "local", "category": "tax_sale",
-     "url": "https://www.bid4assets.com/", "render": true}
-  ]
+ "_help": "One entry per agency listing page. kind: page (default) | pdf | arcgis (feature layer URL). render: true for JavaScript-built pages. follow: regex on link text/URL for detail pages or PDFs to read too (max_follow caps it). level: federal | state | local. category: surplus | forfeiture | tax_sale. Set enabled:false to pause a source.",
+ "sources": [
+  {
+   "id": "fl-dep",
+   "name": "FL DEP State Lands",
+   "agency": "Florida DEP \u2013 Division of State Lands",
+   "level": "state",
+   "state": "FL",
+   "url": "https://floridadep.gov/lands/bureau-real-estate-services/content/surplus-properties",
+   "follow": "bid|offer|invitation|surplus.*(pdf|property)",
+   "max_follow": 8
+  },
+  {
+   "id": "fl-fdot",
+   "name": "FDOT surplus",
+   "agency": "Florida DOT \u2013 Right of Way",
+   "level": "state",
+   "state": "FL",
+   "url": "https://rowsurplus.fdot.gov/",
+   "render": true,
+   "wait_ms": 6000
+  },
+  {
+   "id": "fl-turnpike",
+   "name": "Florida's Turnpike",
+   "agency": "Florida's Turnpike Enterprise",
+   "level": "state",
+   "state": "FL",
+   "url": "https://floridasturnpike.com/?p=925",
+   "follow": "surplus|for sale|bid",
+   "max_follow": 6
+  },
+  {
+   "id": "fl-swfwmd-gis",
+   "name": "SWFWMD lands for sale (GIS)",
+   "agency": "Southwest Florida Water Management District",
+   "level": "state",
+   "state": "FL",
+   "kind": "arcgis",
+   "url": "https://www25.swfwmd.state.fl.us/arcgis11/rest/services/prjSurplus/DistrictLandForSale/MapServer/1"
+  },
+  {
+   "id": "fl-swfwmd",
+   "name": "SWFWMD land sale",
+   "agency": "Southwest Florida Water Management District",
+   "level": "state",
+   "state": "FL",
+   "url": "https://www.swfwmd.state.fl.us/business/land-sale",
+   "follow": "\\.pdf|surplus|bid",
+   "max_follow": 8
+  },
+  {
+   "id": "fl-sfwmd",
+   "name": "SFWMD real estate",
+   "agency": "South Florida Water Management District",
+   "level": "state",
+   "state": "FL",
+   "url": "https://www.sfwmd.gov/doing-business-with-us/real-estate",
+   "follow": "surplus|intention to sell|bid_spec|rfb",
+   "max_follow": 8
+  },
+  {
+   "id": "fl-sjrwmd",
+   "name": "SJRWMD real estate",
+   "agency": "St. Johns River Water Management District",
+   "level": "state",
+   "state": "FL",
+   "url": "https://www.sjrwmd.com/?p=7620",
+   "follow": "surplus|for sale|bid",
+   "max_follow": 6
+  },
+  {
+   "id": "us-irs",
+   "name": "IRS auctions",
+   "agency": "Internal Revenue Service",
+   "level": "federal",
+   "category": "forfeiture",
+   "url": "https://irsauctions.gov/auction/items",
+   "render": true,
+   "follow": "/ad/",
+   "max_follow": 20
+  },
+  {
+   "id": "us-treasury-rp",
+   "name": "Treasury real property",
+   "agency": "U.S. Treasury \u2013 TEOAF",
+   "level": "federal",
+   "category": "forfeiture",
+   "url": "https://www.treasury.gov/auctions/treasury/rp/",
+   "follow": "upcoming|flyer|online auction",
+   "max_follow": 20
+  },
+  {
+   "id": "az-asld",
+   "name": "Arizona State Land auctions",
+   "agency": "Arizona State Land Department",
+   "level": "state",
+   "state": "AZ",
+   "url": "https://land.az.gov/upcoming-auctions",
+   "follow": "notice|flyer",
+   "max_follow": 12
+  },
+  {
+   "id": "az-adot",
+   "name": "ADOT surplus land",
+   "agency": "Arizona DOT \u2013 Right of Way",
+   "level": "state",
+   "state": "AZ",
+   "url": "https://azdot.gov/business/right-way-properties/vacant-land-and-commercial-properties-sale"
+  },
+  {
+   "id": "ca-caltrans",
+   "name": "Caltrans excess land",
+   "agency": "Caltrans \u2013 Right of Way",
+   "level": "state",
+   "state": "CA",
+   "url": "https://dot.ca.gov/programs/right-of-way/excess-lands-properties-for-sale",
+   "follow": "properties-for-sale-or-lease/.+\\.pdf",
+   "max_follow": 15
+  },
+  {
+   "id": "mn-dnr",
+   "name": "Minnesota DNR land sales",
+   "agency": "Minnesota DNR",
+   "level": "state",
+   "state": "MN",
+   "url": "https://www.dnr.state.mn.us/lands_minerals/landsales.html",
+   "follow": "landsale|parcel|data sheet",
+   "max_follow": 8
+  },
+  {
+   "id": "mi-dnr",
+   "name": "Michigan DNR land for sale",
+   "agency": "Michigan DNR",
+   "level": "state",
+   "state": "MI",
+   "url": "https://www.michigan.gov/LandForSale",
+   "render": true
+  },
+  {
+   "id": "ok-odot",
+   "name": "ODOT land for sale",
+   "agency": "Oklahoma DOT",
+   "level": "state",
+   "state": "OK",
+   "url": "https://oklahoma.gov/odot/business-center/land-for-sale.html",
+   "follow": "bid-openings|land-for-sale/",
+   "max_follow": 10
+  },
+  {
+   "id": "ia-dot",
+   "name": "Iowa DOT properties",
+   "agency": "Iowa DOT \u2013 Right of Way",
+   "level": "state",
+   "state": "IA",
+   "url": "https://iowadot.gov/rightofway/Properties-for-sale"
+  },
+  {
+   "id": "govdeals-re",
+   "name": "GovDeals real estate",
+   "agency": "GovDeals (city, county, state sellers)",
+   "level": "local",
+   "url": "https://www.govdeals.com/en/real-estate",
+   "render": true,
+   "wait_ms": 8000,
+   "enabled": false,
+   "note": "Blocks GitHub's servers (Akamai 'Access Denied'); needs a different route"
+  },
+  {
+   "id": "bid4assets",
+   "name": "Bid4Assets county sales",
+   "agency": "Bid4Assets (county tax sales)",
+   "level": "local",
+   "category": "tax_sale",
+   "url": "https://www.bid4assets.com/",
+   "render": true,
+   "enabled": false,
+   "note": "Blocks GitHub's servers (Akamai 'Access Denied'); needs a different route"
+  }
+ ]
 }

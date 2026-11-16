@@ -31,7 +31,10 @@ def capture(name, url, wait_ms=6000, scroll=True, clicks=()):
                 payloads.append({"url": resp.url, "data": data})
 
         page.on("response", on_response)
-        page.goto(url, wait_until="networkidle", timeout=90000)
+        try:
+            page.goto(url, wait_until="networkidle", timeout=45000)
+        except Exception:
+            page.goto(url, wait_until="domcontentloaded", timeout=60000)
         for sel in clicks:
             try:
                 page.click(sel, timeout=5000)
