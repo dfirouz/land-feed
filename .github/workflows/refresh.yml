@@ -25,7 +25,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -60,6 +60,7 @@ jobs:
       - name: Scrape, diff, alert
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m scraper.run --only "${{ github.event.inputs.only }}"
 
       - name: Debug summary
@@ -79,6 +80,6 @@ jobs:
         run: |
           git config user.name "land-feed bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs/data
+          git add docs/data state
           git diff --cached --quiet || git commit -m "data: refresh $(date -u +%Y-%m-%dT%H:%MZ)"
           git push

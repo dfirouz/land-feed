@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 <style>
   :root{--bg:#f7f6f3;--panel:#fff;--ink:#1d1d1b;--muted:#6b6a66;--line:#e4e2dc;--accent:#2f5d50;
-        --blm:#c2702e;--gsa:#2f5d8a;--en:#7a4fa0}
+        --fed:#2f5d8a;--state:#7a4fa0;--local:#2f8a57;--tax:#8a8a8a}
   *{box-sizing:border-box}
   body{margin:0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
   header{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:16px 20px 8px}
@@ -33,7 +33,7 @@
   tr:hover td{background:#f3f7f5;cursor:pointer}
   tr.removed td{color:#aaa;text-decoration:line-through}
   .pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11.5px;color:#fff}
-  .src-federal_register{background:var(--blm)} .src-gsa{background:var(--gsa)} .src-energynet{background:var(--en)}
+  .lv-federal{background:var(--fed)} .lv-state{background:var(--state)} .lv-local{background:var(--local)} .lv-tax{background:var(--tax)}
   .new{color:var(--accent);font-weight:600;font-size:11px;margin-left:6px}
   a{color:var(--accent)}
   .approx{color:var(--muted);font-size:11.5px}
@@ -50,24 +50,27 @@
   <h1>Public Land Feed</h1>
   <span class="meta" id="meta">Loading…</span>
   <span class="legend">
-    <span><span class="dot" style="background:var(--blm)"></span>BLM notices</span>
-    <span><span class="dot" style="background:var(--gsa)"></span>GSA</span>
-    <span><span class="dot" style="background:var(--en)"></span>BLM/State auctions</span>
+    <span><span class="dot" style="background:var(--fed)"></span>Federal</span>
+    <span><span class="dot" style="background:var(--state)"></span>State</span>
+    <span><span class="dot" style="background:var(--local)"></span>Local</span>
+    <span><span class="dot" style="background:var(--tax)"></span>Tax sale</span>
   </span>
 </header>
 <div class="bar">
   <input type="search" id="q" placeholder="Search title, county, agency…">
   <select id="state"><option value="">All states</option></select>
-  <select id="source">
-    <option value="">All sources</option>
-    <option value="federal_register">BLM notices (Federal Register)</option>
-    <option value="gsa">GSA (realestatesales.gov)</option>
-    <option value="energynet">Auctions (EnergyNet)</option>
+  <select id="level">
+    <option value="">All levels</option>
+    <option value="federal">Federal</option>
+    <option value="state">State</option>
+    <option value="local">Local</option>
   </select>
+  <select id="source"><option value="">All sellers</option></select>
   <input class="num" type="number" id="minAc" placeholder="Min acres">
   <input class="num" type="number" id="maxPrice" placeholder="Max price $">
   <input class="num" type="number" id="maxPpa" placeholder="Max $/acre">
   <label><input type="checkbox" id="noDirect" checked> Hide direct sales</label>
+  <label><input type="checkbox" id="showTax"> Tax sales</label>
   <label><input type="checkbox" id="showPast"> Show past/removed</label>
   <a href="data/listings.csv" download style="margin-left:auto">Download CSV</a>
 </div>
@@ -102,7 +105,8 @@ const $ = s => document.querySelector(s);
 const money = v => v == null ? "" : v >= 1e6 ? "$" + (v/1e6).toFixed(2) + "M" : "$" + Math.round(v).toLocaleString();
 const num = v => v == null ? "" : v.toLocaleString(undefined, {maximumFractionDigits: v < 10 ? 2 : 1});
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const COLORS = {federal_register: "#c2702e", gsa: "#2f5d8a", energynet: "#7a4fa0"};
+const COLORS = {federal: "#2f5d8a", state: "#7a4fa0", local: "#2f8a57", tax: "#8a8a8a"};
+const lv = l => l.category === "tax_sale" ? "tax" : (l.level || "state");
 const today = new Date().toISOString().slice(0,10);
 const weekAgo = new Date(Date.now() - 7*864e5).toISOString().slice(0,10);
 
@@ -134,18 +138,21 @@ function popup(l) {
 }
 
 function filtered() {
-  const q = $("#q").value.toLowerCase().trim(), st = $("#state").value, src = $("#source").value;
+  const q = $("#q").value.toLowerCase().trim(), st = $("#state").value, src = $("#source").value, level = $("#level").value;
+  const showTax = $("#showTax").checked;
   const minAc = +$("#minAc").value || 0, maxP = +$("#maxPrice").value || 0, maxPpa = +$("#maxPpa").value || 0;
   const noDirect = $("#noDirect").checked, showPast = $("#showPast").checked;
   return ALL.filter(l => {
     if (!showPast && (l.removed || (l.sale_date && l.sale_date < today) || /ended|passed|sold|complete|older notice/i.test(l.stage || ""))) return false;
     if (st && l.state !== st) return false;
-    if (src && l.source !== src) return false;
+    if (src && l.source_name !== src) return false;
+    if (level && l.level !== level) return false;
+    if (!showTax && l.category === "tax_sale") return false;
     if (minAc && (l.acres || 0) < minAc) return false;
     if (maxP && l.price && l.price > maxP) return false;
     if (maxPpa && l.price_per_acre && l.price_per_acre > maxPpa) return false;
     if (noDirect && /direct/i.test(l.sale_type || "")) return false;
-    if (q && ![l.title, l.county, l.city, l.agency, l.summary, l.state].join(" ").toLowerCase().includes(q)) return false;
+    if (q && ![l.title, l.county, l.city, l.agency, l.summary, l.state, l.source_name].join(" ").toLowerCase().includes(q)) return false;
     return true;
   });
 }
@@ -157,7 +164,7 @@ function render() {
     return (x > y ? 1 : x < y ? -1 : 0) * sortDir;
   });
   $("#tbl tbody").innerHTML = rows.map(l => `<tr data-id="${l.id}" class="${l.removed ? "removed" : ""}">
-    <td class="t"><span class="pill src-${l.source}">${l.source === "federal_register" ? "NORA" : l.source === "gsa" ? "GSA" : "Auction"}</span>
+    <td class="t"><span class="pill lv-${lv(l)}">${esc(l.source_name || l.agency)}</span>
       ${esc(l.title)}${l.first_seen >= weekAgo ? '<span class="new">NEW</span>' : ""}</td>
     <td>${esc(l.agency)}</td><td>${esc(l.state || "")}</td>
     <td>${esc([l.county, l.city].filter(Boolean).join(" / "))}</td>
@@ -170,9 +177,9 @@ function render() {
   rows.forEach(l => {
     if (l.lat == null) return;
     const m = L.circleMarker([l.lat, l.lon], {radius: 7, color: "#fff", weight: 1.5,
-      fillColor: COLORS[l.source] || "#555", fillOpacity: .9}).bindPopup(popup(l), {maxWidth: 320});
+      fillColor: COLORS[lv(l)] || "#555", fillOpacity: .9}).bindPopup(popup(l), {maxWidth: 320});
     markers[l.id] = m; cluster.addLayer(m);
-    if (l.geometry) L.geoJSON(l.geometry, {style: {color: COLORS[l.source] || "#555", weight: 2, fillOpacity: .18}})
+    if (l.geometry) L.geoJSON(l.geometry, {style: {color: COLORS[lv(l)] || "#555", weight: 2, fillOpacity: .18}})
       .bindPopup(popup(l), {maxWidth: 320}).addTo(shapes);
   });
   document.querySelectorAll("th").forEach(th => {
@@ -192,7 +199,7 @@ $("#tbl tbody").addEventListener("click", e => {
   window.scrollTo({top: 0, behavior: "smooth"});
   cluster.zoomToShowLayer(m, () => m.openPopup());
 });
-["#q","#state","#source","#minAc","#maxPrice","#maxPpa","#noDirect","#showPast"].forEach(s =>
+["#q","#state","#level","#source","#minAc","#maxPrice","#maxPpa","#noDirect","#showTax","#showPast"].forEach(s =>
   $(s).addEventListener("input", render));
 
 async function load() {
@@ -203,8 +210,12 @@ async function load() {
   $("#meta").textContent = "Updated " + new Date(d.updated).toLocaleString() + " · refreshes twice daily";
   [...new Set(ALL.map(l => l.state).filter(Boolean))].sort().forEach(s =>
     $("#state").insertAdjacentHTML("beforeend", `<option>${s}</option>`));
-  $("#srcstatus").textContent = Object.entries(d.sources || {}).map(([k, v]) =>
-    `${k}: ${v.ok ? v.count : "error"}`).join(" · ");
+  [...new Set(ALL.map(l => l.source_name).filter(Boolean))].sort().forEach(s =>
+    $("#source").insertAdjacentHTML("beforeend", `<option>${esc(s)}</option>`));
+  const ag = (d.sources.agencies || {}).agencies || {};
+  const nOk = Object.values(ag).filter(v => v.ok).length;
+  $("#srcstatus").textContent = Object.entries(d.sources || {}).filter(([k]) => k !== "agencies").map(([k, v]) =>
+    `${k}: ${v.ok ? v.count : "error"}`).join(" · ") + (Object.keys(ag).length ? ` · agency sites: ${nOk}/${Object.keys(ag).length} reachable` : "");
   $("#changes").innerHTML = ch.slice(0, 60).map(c =>
     `<div class="chg">${esc(c.date)} · <b>${esc(c.kind)}</b> · <a href="${esc(c.url)}" target="_blank">${esc(c.title)}</a> ${esc(c.state || "")} ${c.detail ? "· " + esc(c.detail) : ""}</div>`).join("") || "No changes yet.";
   render();

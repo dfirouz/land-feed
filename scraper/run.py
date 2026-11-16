@@ -13,9 +13,22 @@ from pathlib import Path
 import requests
 
 from .geo import Geocoder
-from .sources import energynet, federal_register, gsa
+from .sources import agencies, energynet, federal_register, gsa
 
-SOURCES = {"federal_register": federal_register, "gsa": gsa, "energynet": energynet}
+SOURCES = {"federal_register": federal_register, "gsa": gsa, "energynet": energynet, "agencies": agencies}
+SHORT = {"federal_register": "BLM notice", "gsa": "GSA", "energynet": "EfficientMarkets"}
+
+
+def classify(d):
+    """Top-level level/category/source_name used by the map filters and alerts."""
+    ex = d.get("extra") or {}
+    src = d["source"]
+    if src.startswith("agency:"):
+        d["level"], d["category"], d["source_name"] = ex.get("level"), ex.get("category", "surplus"), ex.get("source_name")
+    else:
+        d["level"] = "federal" if d.get("agency") in ("BLM", "GSA") else "state"
+        d["category"], d["source_name"] = "surplus", SHORT.get(src, src)
+    return d
 DATA = Path("docs/data")
 LISTINGS = DATA / "listings.json"
 CHANGES = DATA / "changes.json"
@@ -31,6 +44,10 @@ def load(p, default):
 
 
 def matches(l, f):
+    if l.get("category") == "tax_sale" and not f.get("include_tax_sales"):
+        return False
+    if f.get("levels") and l.get("level") not in f["levels"]:
+        return False
     if f.get("states") and l.get("state") not in f["states"]:
         return False
     if f.get("sources") and l.get("source") not in f["sources"]:
@@ -107,10 +124,14 @@ def main():
             items = mod.fetch()
             for l in items:
                 geo.locate(l)
-                d = l.to_dict()
+                d = classify(l.to_dict())
                 fresh[d["id"]] = d
             status[name] = {"ok": True, "count": len(items), "at": now}
-            if items:
+            if getattr(mod, "STATUS", None):
+                status[name]["agencies"] = mod.STATUS
+            if getattr(mod, "OK_SOURCES", None) is not None:
+                ok_sources |= mod.OK_SOURCES
+            elif items:
                 ok_sources.add(name)
             print(f"{name}: {len(items)} listings")
         except Exception as e:
@@ -137,7 +158,7 @@ def main():
         if old["source"] in ok_sources and not old.get("removed"):
             old = {**old, "removed": True}
             events.append({"kind": "Removed", "detail": "No longer listed", "listing": old, "date": today})
-        merged[i] = old
+        merged[i] = classify(old) if "level" not in old else old
 
     listings = sorted(merged.values(), key=lambda x: x.get("first_seen") or "", reverse=True)
     listings.sort(key=lambda x: x.get("removed", False))  # stable: active first, newest first
@@ -152,7 +173,7 @@ def main():
              "title": e["listing"]["title"], "state": e["listing"].get("state"), "url": e["listing"]["url"]}
             for e in events] + log)[:1000]
     CHANGES.write_text(json.dumps(log, indent=1))
-    cols = ["id", "source", "agency", "title", "state", "county", "city", "acres", "price", "price_type",
+    cols = ["id", "source", "source_name", "level", "category", "agency", "title", "state", "county", "city", "acres", "price", "price_type",
             "price_per_acre", "sale_type", "stage", "sale_date", "comment_deadline", "published",
             "first_seen", "last_seen", "removed", "url", "lat", "lon", "loc_precision"]
     with open(DATA / "listings.csv", "w", newline="") as f:
