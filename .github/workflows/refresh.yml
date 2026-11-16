@@ -53,6 +53,9 @@ jobs:
           if [ -z "$NTFY_TOPIC" ]; then echo "NTFY_TOPIC secret is not set"; exit 1; fi
           curl -s -H "Title: Land feed connected" -H "Tags: world_map" -H "Click: https://dfirouz.github.io/land-feed/" \
             -d "You'll get alerts here for new public land listings, price changes and removals." "https://ntfy.sh/$NTFY_TOPIC"
+          echo; echo "topic length: ${#NTFY_TOPIC}"
+          [ "$NTFY_TOPIC" = "dean-land-7f3k9q2x" ] && echo "topic matches app subscription" || echo "topic DOES NOT match app subscription"
+          echo "messages on topic in last hour:"; curl -s "https://ntfy.sh/$NTFY_TOPIC/json?poll=1&since=1h" | wc -l
 
       - name: Scrape, diff, alert
         env:
