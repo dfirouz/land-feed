@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Public Land Feed</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<style>
+  :root{--bg:#f7f6f3;--panel:#fff;--ink:#1d1d1b;--muted:#6b6a66;--line:#e4e2dc;--accent:#2f5d50;
+        --blm:#c2702e;--gsa:#2f5d8a;--en:#7a4fa0}
+  *{box-sizing:border-box}
+  body{margin:0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+  header{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:16px 20px 8px}
+  h1{font-size:19px;margin:0;letter-spacing:-.01em}
+  .meta{color:var(--muted);font-size:12.5px}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 20px 12px}
+  .bar input,.bar select{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff}
+  .bar input[type=search]{min-width:220px}
+  .bar input.num{width:120px}
+  .bar label{display:flex;gap:5px;align-items:center;color:var(--muted);font-size:13px}
+  .wrap{display:grid;grid-template-columns:1fr;gap:12px;padding:0 20px 20px}
+  #map{height:52vh;min-height:340px;border:1px solid var(--line);border-radius:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .tablewrap{max-height:60vh;overflow:auto}
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:nowrap}
+  td.t{white-space:normal;min-width:260px;max-width:440px}
+  th{position:sticky;top:0;background:#faf9f6;cursor:pointer;user-select:none;font-weight:600;font-size:12px;color:#444;z-index:1}
+  th.sorted::after{content:attr(data-dir);margin-left:4px;color:var(--accent)}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  tr:hover td{background:#f3f7f5;cursor:pointer}
+  tr.removed td{color:#aaa;text-decoration:line-through}
+  .pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11.5px;color:#fff}
+  .src-federal_register{background:var(--blm)} .src-gsa{background:var(--gsa)} .src-energynet{background:var(--en)}
+  .new{color:var(--accent);font-weight:600;font-size:11px;margin-left:6px}
+  a{color:var(--accent)}
+  .approx{color:var(--muted);font-size:11.5px}
+  .foot{display:flex;justify-content:space-between;padding:8px 12px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+  details{padding:10px 14px} summary{cursor:pointer;font-weight:600}
+  .chg{font-size:12.5px;padding:3px 0;border-bottom:1px dashed var(--line)}
+  .popup h4{margin:0 0 4px;font-size:13.5px} .popup div{font-size:12.5px}
+  .legend{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--muted)}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:-1px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Public Land Feed</h1>
+  <span class="meta" id="meta">Loading…</span>
+  <span class="legend">
+    <span><span class="dot" style="background:var(--blm)"></span>BLM notices</span>
+    <span><span class="dot" style="background:var(--gsa)"></span>GSA</span>
+    <span><span class="dot" style="background:var(--en)"></span>BLM/State auctions</span>
+  </span>
+</header>
+<div class="bar">
+  <input type="search" id="q" placeholder="Search title, county, agency…">
+  <select id="state"><option value="">All states</option></select>
+  <select id="source">
+    <option value="">All sources</option>
+    <option value="federal_register">BLM notices (Federal Register)</option>
+    <option value="gsa">GSA (realestatesales.gov)</option>
+    <option value="energynet">Auctions (EnergyNet)</option>
+  </select>
+  <input class="num" type="number" id="minAc" placeholder="Min acres">
+  <input class="num" type="number" id="maxPrice" placeholder="Max price $">
+  <input class="num" type="number" id="maxPpa" placeholder="Max $/acre">
+  <label><input type="checkbox" id="noDirect" checked> Hide direct sales</label>
+  <label><input type="checkbox" id="showPast"> Show past/removed</label>
+  <a href="data/listings.csv" download style="margin-left:auto">Download CSV</a>
+</div>
+<div class="wrap">
+  <div id="map"></div>
+  <div class="card">
+    <div class="tablewrap">
+      <table id="tbl"><thead><tr>
+        <th data-k="title">Listing</th>
+        <th data-k="agency">Agency</th>
+        <th data-k="state">St</th>
+        <th data-k="county">County / City</th>
+        <th data-k="acres" class="n">Acres</th>
+        <th data-k="price" class="n">Price</th>
+        <th data-k="price_per_acre" class="n">$ / acre</th>
+        <th data-k="sale_type">Sale type</th>
+        <th data-k="stage">Stage</th>
+        <th data-k="sale_date">Sale date</th>
+        <th data-k="first_seen">First seen</th>
+        <th>Link</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+    <div class="foot"><span id="count"></span><span id="srcstatus"></span></div>
+  </div>
+  <div class="card"><details><summary>Recent changes</summary><div id="changes"></div></details></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const money = v => v == null ? "" : v >= 1e6 ? "$" + (v/1e6).toFixed(2) + "M" : "$" + Math.round(v).toLocaleString();
+const num = v => v == null ? "" : v.toLocaleString(undefined, {maximumFractionDigits: v < 10 ? 2 : 1});
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const COLORS = {federal_register: "#c2702e", gsa: "#2f5d8a", energynet: "#7a4fa0"};
+const today = new Date().toISOString().slice(0,10);
+const weekAgo = new Date(Date.now() - 7*864e5).toISOString().slice(0,10);
+
+let ALL = [], sortK = "first_seen", sortDir = -1, markers = {};
+const map = L.map("map", {worldCopyJump: true}).setView([39, -98], 4);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+  attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19}).addTo(map);
+const cluster = L.markerClusterGroup({maxClusterRadius: 40, showCoverageOnHover: false});
+map.addLayer(cluster);
+
+function popup(l) {
+  const loc = [l.city, l.county, l.state].filter(Boolean).join(", ");
+  return `<div class="popup"><h4>${esc(l.title)}</h4>
+    <div>${esc(l.agency)} · ${esc(loc)}</div>
+    <div>${l.acres ? num(l.acres) + " acres" : ""}${l.price ? " · " + money(l.price) + (l.price_type ? " (" + esc(l.price_type) + ")" : "") : ""}</div>
+    ${l.price_per_acre ? `<div>${money(l.price_per_acre)} / acre</div>` : ""}
+    <div>${esc(l.sale_type || "")}${l.stage ? " · " + esc(l.stage) : ""}${l.sale_date ? " · sale " + esc(l.sale_date) : ""}</div>
+    ${l.comment_deadline ? `<div>Comments due ${esc(l.comment_deadline)}</div>` : ""}
+    ${l.loc_precision && l.loc_precision !== "address" ? `<div class="approx">Pin is approximate (${esc(l.loc_precision)} center)</div>` : ""}
+    <div style="margin-top:4px"><a href="${esc(l.url)}" target="_blank" rel="noopener">Open posting ↗</a></div></div>`;
+}
+
+function filtered() {
+  const q = $("#q").value.toLowerCase().trim(), st = $("#state").value, src = $("#source").value;
+  const minAc = +$("#minAc").value || 0, maxP = +$("#maxPrice").value || 0, maxPpa = +$("#maxPpa").value || 0;
+  const noDirect = $("#noDirect").checked, showPast = $("#showPast").checked;
+  return ALL.filter(l => {
+    if (!showPast && (l.removed || (l.sale_date && l.sale_date < today) || /ended|passed|sold|complete/i.test(l.stage || ""))) return false;
+    if (st && l.state !== st) return false;
+    if (src && l.source !== src) return false;
+    if (minAc && (l.acres || 0) < minAc) return false;
+    if (maxP && l.price && l.price > maxP) return false;
+    if (maxPpa && l.price_per_acre && l.price_per_acre > maxPpa) return false;
+    if (noDirect && /direct/i.test(l.sale_type || "")) return false;
+    if (q && ![l.title, l.county, l.city, l.agency, l.summary, l.state].join(" ").toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+
+function render() {
+  const rows = filtered().sort((a, b) => {
+    const x = a[sortK], y = b[sortK];
+    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (x > y ? 1 : x < y ? -1 : 0) * sortDir;
+  });
+  $("#tbl tbody").innerHTML = rows.map(l => `<tr data-id="${l.id}" class="${l.removed ? "removed" : ""}">
+    <td class="t"><span class="pill src-${l.source}">${l.source === "federal_register" ? "NORA" : l.source === "gsa" ? "GSA" : "Auction"}</span>
+      ${esc(l.title)}${l.first_seen >= weekAgo ? '<span class="new">NEW</span>' : ""}</td>
+    <td>${esc(l.agency)}</td><td>${esc(l.state || "")}</td>
+    <td>${esc([l.county, l.city].filter(Boolean).join(" / "))}</td>
+    <td class="n">${num(l.acres)}</td><td class="n">${money(l.price)}</td><td class="n">${money(l.price_per_acre)}</td>
+    <td>${esc(l.sale_type || "")}</td><td>${esc(l.stage || "")}</td><td>${esc(l.sale_date || "")}</td><td>${esc(l.first_seen || "")}</td>
+    <td><a href="${esc(l.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Posting ↗</a></td></tr>`).join("");
+  $("#count").textContent = `${rows.length} of ${ALL.length} listings shown`;
+
+  cluster.clearLayers(); markers = {};
+  rows.forEach(l => {
+    if (l.lat == null) return;
+    const m = L.circleMarker([l.lat, l.lon], {radius: 7, color: "#fff", weight: 1.5,
+      fillColor: COLORS[l.source] || "#555", fillOpacity: .9}).bindPopup(popup(l), {maxWidth: 320});
+    markers[l.id] = m; cluster.addLayer(m);
+  });
+  document.querySelectorAll("th").forEach(th => {
+    th.classList.toggle("sorted", th.dataset.k === sortK);
+    th.dataset.dir = sortDir > 0 ? "▲" : "▼";
+  });
+}
+
+$("#tbl thead").addEventListener("click", e => {
+  const k = e.target.dataset.k; if (!k) return;
+  sortDir = (k === sortK) ? -sortDir : (["title","agency","state","county","sale_type","stage"].includes(k) ? 1 : -1);
+  sortK = k; render();
+});
+$("#tbl tbody").addEventListener("click", e => {
+  const tr = e.target.closest("tr"); if (!tr) return;
+  const m = markers[tr.dataset.id]; if (!m) return;
+  window.scrollTo({top: 0, behavior: "smooth"});
+  cluster.zoomToShowLayer(m, () => m.openPopup());
+});
+["#q","#state","#source","#minAc","#maxPrice","#maxPpa","#noDirect","#showPast"].forEach(s =>
+  $(s).addEventListener("input", render));
+
+async function load() {
+  const [d, ch] = await Promise.all([
+    fetch("data/listings.json?t=" + Date.now()).then(r => r.json()),
+    fetch("data/changes.json?t=" + Date.now()).then(r => r.ok ? r.json() : []).catch(() => [])]);
+  ALL = d.listings || [];
+  $("#meta").textContent = "Updated " + new Date(d.updated).toLocaleString() + " · refreshes twice daily";
+  [...new Set(ALL.map(l => l.state).filter(Boolean))].sort().forEach(s =>
+    $("#state").insertAdjacentHTML("beforeend", `<option>${s}</option>`));
+  $("#srcstatus").textContent = Object.entries(d.sources || {}).map(([k, v]) =>
+    `${k}: ${v.ok ? v.count : "error"}`).join(" · ");
+  $("#changes").innerHTML = ch.slice(0, 60).map(c =>
+    `<div class="chg">${esc(c.date)} · <b>${esc(c.kind)}</b> · <a href="${esc(c.url)}" target="_blank">${esc(c.title)}</a> ${esc(c.state || "")} ${c.detail ? "· " + esc(c.detail) : ""}</div>`).join("") || "No changes yet.";
+  render();
+}
+load();
+</script>
+</body>
+</html>

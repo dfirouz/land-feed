@@ -1,0 +1,6 @@
+{
+  "_help": "Push alerts fire for any listing matching at least one filter. Empty filter {} = everything. Keys: states (list of 2-letter codes), sources (federal_register|gsa|energynet), min_acres, max_price, max_price_per_acre, exclude_direct_sales.",
+  "filters": [
+    {"exclude_direct_sales": true}
+  ]
+}
