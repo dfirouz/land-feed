@@ -1,20 +1,20 @@
 {
- "updated": "2026-11-16T19:57+00:00",
+ "updated": "2026-11-16T20:00+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 11,
-   "at": "2026-11-16T19:57+00:00"
+   "at": "2026-11-16T20:00+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-16T19:57+00:00"
+   "at": "2026-11-16T20:00+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 4,
-   "at": "2026-11-16T19:57+00:00"
+   "at": "2026-11-16T20:00+00:00"
   }
  },
  "listings": [
@@ -234,7 +234,7 @@
    "price": 50600000.0,
    "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
-   "stage": "Notice of Realty Action",
+   "stage": "Older notice (check status)",
    "sale_date": null,
    "comment_deadline": "2026-04-27",
    "published": "2026-03-11",
@@ -263,7 +263,7 @@
    "price": null,
    "price_type": null,
    "sale_type": "Modified competitive",
-   "stage": "Notice of Realty Action",
+   "stage": "Older notice (check status)",
    "sale_date": null,
    "comment_deadline": "2026-04-10",
    "published": "2026-02-23",
@@ -292,7 +292,7 @@
    "price": 760000.0,
    "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
-   "stage": "Notice of Realty Action",
+   "stage": "Older notice (check status)",
    "sale_date": null,
    "comment_deadline": "2026-04-09",
    "published": "2026-02-23",
@@ -321,7 +321,7 @@
    "price": 17000.0,
    "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
-   "stage": "Notice of Realty Action",
+   "stage": "Older notice (check status)",
    "sale_date": null,
    "comment_deadline": "2026-03-02",
    "published": "2026-01-14",
@@ -346,7 +346,7 @@
    "state": "RI",
    "county": null,
    "city": "Warwick",
-   "acres": 2.984389348025712e-05,
+   "acres": 1.3,
    "price": 1120000.0,
    "price_type": "Current bid",
    "sale_type": "Online Auction \u00b7 Lighthouse",
@@ -366,7 +366,7 @@
     "auction_window": "Auction Open Oct 07 10:00 AM - Dec 15, 2026 9:00 AM CST"
    },
    "id": "a23b711ca571",
-   "price_per_acre": 37528615384.62,
+   "price_per_acre": 861538.46,
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16",
    "removed": false
@@ -2556,7 +2556,7 @@
    "state": "TX",
    "county": null,
    "city": null,
-   "acres": 0.0,
+   "acres": null,
    "price": null,
    "price_type": null,
    "sale_type": "Request for proposal",
