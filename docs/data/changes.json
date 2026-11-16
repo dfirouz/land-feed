@@ -1,6 +1,60 @@
 [
  {
   "date": "2026-11-16",
+  "kind": "New",
+  "detail": "",
+  "id": "dda4f73af2c2",
+  "title": "Redmond - Lake View (C-27353)",
+  "state": "UT",
+  "url": "https://app.efficientmarkets.com/detail/162276"
+ },
+ {
+  "date": "2026-11-16",
+  "kind": "New",
+  "detail": "",
+  "id": "4a840beb21e1",
+  "title": "Silvan Canyon Estates (C-27354)",
+  "state": "UT",
+  "url": "https://app.efficientmarkets.com/detail/162277"
+ },
+ {
+  "date": "2026-11-16",
+  "kind": "New",
+  "detail": "",
+  "id": "8ed9c9921504",
+  "title": "Texas General Land Office",
+  "state": "TX",
+  "url": "https://app.efficientmarkets.com/detail/161973"
+ },
+ {
+  "date": "2026-11-16",
+  "kind": "New",
+  "detail": "",
+  "id": "b16c61f9caaa",
+  "title": "Sheridan Trust Land RFP",
+  "state": "WY",
+  "url": "https://app.efficientmarkets.com/detail/168930"
+ },
+ {
+  "date": "2026-11-16",
+  "kind": "Removed",
+  "detail": "No longer listed",
+  "id": "b8888263dc38",
+  "title": "Utah State Trust Lands November 12-18, 2026",
+  "state": "UT",
+  "url": "https://app.efficientmarkets.com/salegroup/7587"
+ },
+ {
+  "date": "2026-11-16",
+  "kind": "Removed",
+  "detail": "No longer listed",
+  "id": "caefd38a754f",
+  "title": "Wyoming Office of State Lands, December 15, 2026",
+  "state": "WY",
+  "url": "https://app.efficientmarkets.com/salegroup/7633"
+ },
+ {
+  "date": "2026-11-16",
   "kind": "Updated",
   "detail": "sale_date: \u2014 \u2192 2026-11-18",
   "id": "b8888263dc38",
