@@ -56,7 +56,7 @@ def _detail(pid):
         return {}
     t = cap["text"]
     out = {}
-    m = re.search(r"(?:Lot Size|Land Area|Acreage|Site Area|Acres)\s*:?\s*\n?\s*([\d,]+(?:\.\d+)?)\s*(acres?|ac|sq\.?\s*ft|square feet|sf)?", t, re.I)
+    m = re.search(r"(?:Total Acre(?:s|age)|Lot Size|Land Area|Acreage|Site Area|Acres)\s*:?\s*\n?\s*(\d[\d,]*(?:\.\d+)?)\s*(acres?|ac|sq\.?\s*ft|square feet|sf)?", t, re.I)
     if m:
         v = float(m.group(1).replace(",", ""))
         unit = (m.group(2) or "acres").lower()
@@ -68,8 +68,11 @@ def _detail(pid):
         if m:
             out["start_price"], out["price_label"] = parse_money(m.group(1)), label
             break
-    m = re.search(r"(?:Description|Property Description|Overview)\s*\n(.{40,600})", t)
-    out["summary"] = clean(m.group(1)) if m else ""
+    m = re.search(r"About Property\s*\n(.{0,1500})", t, re.S)
+    out["summary"] = clean(m.group(1))[:600] if m else ""
+    hb = re.search(r"High Bid\s*(\$[\d,]+)", t)
+    if hb:
+        out["high_bid"] = parse_money(hb.group(1))
     return out
 
 
@@ -89,6 +92,7 @@ def fetch():
         when = c["when"] or ""
         dates = re.findall(rf"((?:{MONTHS})\s+\d{{1,2}},\s+\d{{4}})", when)
         price, ptype = None, None
+        c["current_bid"] = c["current_bid"] or det.get("high_bid")
         if c["current_bid"]:
             price, ptype = c["current_bid"], "Current bid"
         elif det.get("start_price"):
