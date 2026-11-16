@@ -1,69 +1,108 @@
-"""GSA surplus federal real property — realestatesales.gov (JS app; parsed from its JSON API calls)."""
+"""GSA surplus federal real property — realestatesales.gov listing cards + detail pages."""
 import re
 
-from ..browser import capture, walk_records
+from ..browser import capture
 from ..common import Listing, clean, parse_acres, parse_money, state_abbr
 
 BASE = "https://realestatesales.gov"
+LIST_URL = BASE + "/our-listing/"
+STATUSES = ("NOW BIDDING", "COMING SOON", "ACTIVE", "CLOSED", "SOLD", "PENDING", "ENDED")
+MONTHS = "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 
 
-def _get(rec, *keys):
-    """Case/format-insensitive key lookup; returns first non-empty match."""
-    norm = {re.sub(r"[^a-z]", "", k.lower()): v for k, v in rec.items()}
-    for k in keys:
-        v = norm.get(re.sub(r"[^a-z]", "", k.lower()))
-        if v not in (None, "", [], {}):
-            return v
-    return None
-
-
-def _num(v):
-    if v is None:
+def _iso(s):
+    import datetime as dt
+    try:
+        return dt.datetime.strptime(clean(s), "%b %d, %Y").date().isoformat()
+    except Exception:
         return None
-    if isinstance(v, (int, float)):
-        return float(v)
-    return parse_money("$" + str(v).lstrip("$")) if re.search(r"\d", str(v)) else None
 
 
-def _looks_like_property(rec):
-    keys = {re.sub(r"[^a-z]", "", k.lower()) for k in rec}
-    has_name = keys & {"name", "title", "propertyname", "auctionname", "listingname"}
-    has_loc = keys & {"city", "state", "address", "street", "propertycity", "propertystate", "zip", "zipcode"}
-    return bool(has_name and has_loc)
+def _parse_card(text):
+    lines = [clean(x) for x in text.split("\n") if clean(x)]
+    d = {"current_bid": None, "status": None, "name": None, "street": None, "city": None,
+         "state": None, "zip": None, "when": None, "method": None, "category": None}
+    i = 0
+    if lines and lines[0].lower().startswith("current bid"):
+        d["current_bid"] = parse_money(lines[1]) if len(lines) > 1 else None
+        i = 2
+    if i < len(lines) and lines[i].upper() in STATUSES:
+        d["status"] = lines[i].title(); i += 1
+    rest = lines[i:]
+    if rest:
+        d["name"] = rest[0]
+    for j, l in enumerate(rest[1:], 1):
+        m = re.match(r"^(.+?),\s*([A-Z]{2})\s*(\d{5})?", l)
+        if m and state_abbr(m.group(2)) and not d["city"]:
+            d["city"], d["state"], d["zip"] = m.group(1), m.group(2), m.group(3)
+            d["street"] = rest[j - 1] if j - 1 > 0 else None
+            tail = rest[j + 1:]
+            if tail and re.match(r"(Auction|Bidding|Sale|Offers)", tail[0], re.I):
+                d["when"] = tail.pop(0)
+            if tail:
+                d["method"] = tail[0]
+            if len(tail) > 1:
+                d["category"] = tail[1]
+            break
+    return d
+
+
+def _detail(pid):
+    """Pull acreage / starting bid from the asset detail page text."""
+    try:
+        cap = capture(f"gsa_{pid}", f"{BASE}/asset-details/?property_id={pid}", wait_ms=1500, scroll=False)
+    except Exception as e:
+        print(f"  gsa detail {pid}: {e}")
+        return {}
+    t = cap["text"]
+    out = {}
+    m = re.search(r"(?:Lot Size|Land Area|Acreage|Site Area|Acres)\s*:?\s*\n?\s*([\d,]+(?:\.\d+)?)\s*(acres?|ac|sq\.?\s*ft|square feet|sf)?", t, re.I)
+    if m:
+        v = float(m.group(1).replace(",", ""))
+        unit = (m.group(2) or "acres").lower()
+        out["acres"] = v / 43560 if ("sq" in unit or unit in ("sf", "square feet")) else v
+    else:
+        out["acres"] = parse_acres(t[:20000])
+    for label in ("Starting Bid", "Opening Bid", "Minimum Bid", "Asking Price", "List Price", "Price"):
+        m = re.search(label + r"\s*:?\s*\n?\s*(\$[\d,]+(?:\.\d+)?)", t, re.I)
+        if m:
+            out["start_price"], out["price_label"] = parse_money(m.group(1)), label
+            break
+    m = re.search(r"(?:Description|Property Description|Overview)\s*\n(.{40,600})", t)
+    out["summary"] = clean(m.group(1)) if m else ""
+    return out
 
 
 def fetch():
-    cap = capture("gsa", BASE + "/", clicks=("text=View All Properties",))
-    seen, out = set(), []
-    for pl in cap["json"]:
-        for rec in walk_records(pl["data"]):
-            if not _looks_like_property(rec):
-                continue
-            name = clean(str(_get(rec, "name", "title", "propertyName", "auctionName", "listingName")))
-            rid = str(_get(rec, "id", "propertyId", "auctionId", "listingId", "salesId", "lotId") or name)
-            if rid in seen:
-                continue
-            seen.add(rid)
-            city = _get(rec, "city", "propertyCity")
-            st = state_abbr(str(_get(rec, "state", "propertyState", "stateCode") or ""))
-            desc = clean(str(_get(rec, "description", "shortDescription", "summary", "propertyDescription") or ""))
-            acres = _num(_get(rec, "acres", "acreage", "lotSizeAcres", "landAcres", "totalAcres")) or parse_acres(desc + " " + name)
-            price = _num(_get(rec, "currentBid", "startingBid", "openingBid", "minimumBid", "price", "askingPrice", "listPrice"))
-            ptype = "Current bid" if _get(rec, "currentBid") else ("Starting bid" if price else None)
-            slug = _get(rec, "url", "link", "slug", "detailUrl", "href")
-            url = slug if (isinstance(slug, str) and slug.startswith("http")) else (
-                f"{BASE}/{str(slug).lstrip('/')}" if slug else f"{BASE}/")
-            ptype_cat = clean(str(_get(rec, "propertyType", "category", "type", "assetType") or ""))
-            out.append(Listing(
-                source="gsa", source_id=rid, title=name, url=url, agency="GSA",
-                state=st, city=clean(str(city)) if city else None,
-                acres=acres, price=price, price_type=ptype,
-                sale_type=clean(str(_get(rec, "auctionType", "saleType", "saleMethod") or "")) or None,
-                stage=clean(str(_get(rec, "status", "auctionStatus", "saleStatus") or "")) or None,
-                sale_date=str(_get(rec, "endDate", "auctionEndDate", "closeDate", "bidEndDate", "saleDate") or "")[:10] or None,
-                summary=desc[:600],
-                extra={"address": clean(str(_get(rec, "address", "street", "streetAddress") or "")),
-                       "zip": str(_get(rec, "zip", "zipCode", "postalCode") or ""),
-                       "property_type": ptype_cat},
-            ))
+    cap = capture("gsa", LIST_URL, wait_ms=3000)
+    out, seen = [], set()
+    for l in cap["links"]:
+        m = re.search(r"asset-details/\?property_id=(\d+)", l["href"])
+        if not m or m.group(1) in seen:
+            continue
+        pid = m.group(1)
+        seen.add(pid)
+        c = _parse_card(l["text"] or "")
+        if not c["name"]:
+            continue
+        det = _detail(pid)
+        when = c["when"] or ""
+        dates = re.findall(rf"((?:{MONTHS})\s+\d{{1,2}},\s+\d{{4}})", when)
+        price, ptype = None, None
+        if c["current_bid"]:
+            price, ptype = c["current_bid"], "Current bid"
+        elif det.get("start_price"):
+            price, ptype = det["start_price"], det.get("price_label")
+        sale_type = " · ".join(x for x in (c["method"], c["category"]) if x) or None
+        out.append(Listing(
+            source="gsa", source_id=pid, title=c["name"],
+            url=f"{BASE}/asset-details/?property_id={pid}", agency="GSA",
+            state=c["state"], city=c["city"],
+            acres=det.get("acres") or parse_acres(c["name"]),
+            price=price, price_type=ptype, sale_type=sale_type, stage=c["status"],
+            sale_date=_iso(dates[-1]) if dates else None,
+            summary=det.get("summary", ""),
+            extra={"address": c["street"] or "", "zip": c["zip"] or "", "property_type": c["category"] or "",
+                   "auction_window": when},
+        ))
     return out

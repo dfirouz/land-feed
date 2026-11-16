@@ -112,6 +112,7 @@ L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
   attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19}).addTo(map);
 const cluster = L.markerClusterGroup({maxClusterRadius: 40, showCoverageOnHover: false});
 map.addLayer(cluster);
+const shapes = L.layerGroup().addTo(map);
 
 function popup(l) {
   const loc = [l.city, l.county, l.state].filter(Boolean).join(", ");
@@ -121,7 +122,9 @@ function popup(l) {
     ${l.price_per_acre ? `<div>${money(l.price_per_acre)} / acre</div>` : ""}
     <div>${esc(l.sale_type || "")}${l.stage ? " · " + esc(l.stage) : ""}${l.sale_date ? " · sale " + esc(l.sale_date) : ""}</div>
     ${l.comment_deadline ? `<div>Comments due ${esc(l.comment_deadline)}</div>` : ""}
-    ${l.loc_precision && l.loc_precision !== "address" ? `<div class="approx">Pin is approximate (${esc(l.loc_precision)} center)</div>` : ""}
+    ${l.loc_precision && !["address","parcel"].includes(l.loc_precision) ? `<div class="approx">Pin is approximate (${esc(l.loc_precision)} center)</div>` : ""}
+    ${l.extra && l.extra.current_bid ? `<div>Current bid ${money(l.extra.current_bid)}</div>` : ""}
+    ${l.extra && l.extra.sale_group ? `<div class="approx">${esc(l.extra.sale_group)}</div>` : ""}
     <div style="margin-top:4px"><a href="${esc(l.url)}" target="_blank" rel="noopener">Open posting ↗</a></div></div>`;
 }
 
@@ -158,12 +161,14 @@ function render() {
     <td><a href="${esc(l.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Posting ↗</a></td></tr>`).join("");
   $("#count").textContent = `${rows.length} of ${ALL.length} listings shown`;
 
-  cluster.clearLayers(); markers = {};
+  cluster.clearLayers(); shapes.clearLayers(); markers = {};
   rows.forEach(l => {
     if (l.lat == null) return;
     const m = L.circleMarker([l.lat, l.lon], {radius: 7, color: "#fff", weight: 1.5,
       fillColor: COLORS[l.source] || "#555", fillOpacity: .9}).bindPopup(popup(l), {maxWidth: 320});
     markers[l.id] = m; cluster.addLayer(m);
+    if (l.geometry) L.geoJSON(l.geometry, {style: {color: COLORS[l.source] || "#555", weight: 2, fillOpacity: .18}})
+      .bindPopup(popup(l), {maxWidth: 320}).addTo(shapes);
   });
   document.querySelectorAll("th").forEach(th => {
     th.classList.toggle("sorted", th.dataset.k === sortK);

@@ -43,7 +43,16 @@ def _round_geom(g):
         return [r(x) for x in c] if isinstance(c, list) and c and isinstance(c[0], list) else [round(v, 5) for v in c]
     if not g:
         return None
-    return {"type": g["type"], "coordinates": r(g["coordinates"])}
+    if "coordinates" not in g:
+        parts = [x for x in g.get("geometries", []) if x.get("coordinates")]
+        if not parts:
+            return None
+        g = parts[0] if len(parts) == 1 else {"type": "MultiPolygon", "coordinates": [
+            p["coordinates"] if p["type"] == "Polygon" else c for p in parts for c in ([p["coordinates"]] if p["type"] == "Polygon" else p["coordinates"])]}
+    try:
+        return {"type": g["type"], "coordinates": r(g["coordinates"])}
+    except Exception:
+        return None
 
 
 def _centroid(g):
@@ -79,7 +88,11 @@ def fetch():
 
     out = []
     for gid, g in groups.items():
-        sg = _get(f"SaleGroup/{gid}")
+        try:
+            sg = _get(f"SaleGroup/{gid}")
+        except Exception as e:
+            print(f"  energynet group {gid}: {e}")
+            continue
         try:
             gj = _get(f"geojson/salegroups/{gid}")
             geoms = {f["properties"]["id"]: f["geometry"] for f in gj.get("features", []) if f.get("geometry")}
