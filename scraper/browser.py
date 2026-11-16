@@ -44,6 +44,7 @@ def capture(name, url, wait_ms=6000, scroll=True, clicks=()):
                 page.wait_for_timeout(700)
         page.wait_for_timeout(wait_ms)
         html = page.content()
+        print(f"  [{name}] final url: {page.url}")
         links = page.eval_on_selector_all(
             "a[href]", "els => els.map(e => ({href: e.href, text: e.innerText.trim().slice(0,200)}))")
         text = page.inner_text("body")

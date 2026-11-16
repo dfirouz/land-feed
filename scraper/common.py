@@ -57,7 +57,8 @@ class Listing:
     summary: str = ""
     lat: Optional[float] = None
     lon: Optional[float] = None
-    loc_precision: Optional[str] = None  # "address", "city", "county", "state"
+    loc_precision: Optional[str] = None  # "parcel", "zip", "city", "county", "state"
+    geometry: Optional[dict] = None      # GeoJSON geometry when the source publishes parcel shapes
     extra: dict = field(default_factory=dict)
 
     @property

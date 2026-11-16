@@ -8,6 +8,12 @@ for d in sorted(p for p in root.glob("*") if p.is_dir()):
     txt = (d / "page.txt").read_text() if (d / "page.txt").exists() else ""
     print("--- text (first 2500 chars) ---")
     print(txt[:2500])
+    html = (d / "page.html").read_text() if (d / "page.html").exists() else ""
+    if d.name == "gsa" and html:
+        i = html.find("NOW BIDDING")
+        i = i if i > 0 else html.find("COMING SOON")
+        print("--- html around first card ---")
+        print(html[max(0, i - 3000): i + 3000])
     links = json.loads((d / "links.json").read_text()) if (d / "links.json").exists() else []
     print(f"--- links ({len(links)}) ---")
     for l in links[:80]:
