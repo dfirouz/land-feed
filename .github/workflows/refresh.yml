@@ -46,6 +46,10 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python -m scraper.run --only "${{ github.event.inputs.only }}"
 
+      - name: Debug summary
+        if: always()
+        run: python -m scraper.debug_summary || true
+
       - name: Upload debug captures
         if: always()
         uses: actions/upload-artifact@v4

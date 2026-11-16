@@ -60,7 +60,7 @@ def fetch():
     params = [
         ("conditions[agencies][]", "land-management-bureau"),
         ("conditions[type][]", "NOTICE"),
-        ("conditions[term]", '"realty action" sale'),
+        ("conditions[term]", '"realty action"'),
         ("conditions[publication_date][gte]", since),
         ("per_page", "100"),
         ("order", "newest"),
@@ -80,7 +80,7 @@ def fetch():
     for d in docs:
         title = clean(d.get("title"))
         tl = title.lower()
-        if "sale" not in tl or "lease" in tl and "sale" not in tl:
+        if "sale" not in tl:
             continue
         abstract = clean(d.get("abstract"))
         raw = ""
@@ -98,7 +98,7 @@ def fetch():
         if not st:
             m = re.search(r",\s*([A-Z][a-z]+(?:\s[A-Z][a-z]+)?|[A-Z]{2})\s*;?\s*(?:and|$|Termination)", title)
             st = state_abbr(m.group(1)) if m else None
-        sale_date = _sale_date(raw or abstract)
+        sale_date = _sale_date(clean(d.get("dates")) + " " + (raw or abstract))
         stage = "Notice of Realty Action"
         if sale_date and sale_date < dt.date.today().isoformat():
             stage = "Sale date passed"
