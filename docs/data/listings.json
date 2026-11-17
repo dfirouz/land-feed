@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-17T05:04+00:00",
+ "updated": "2026-11-17T19:51+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 11,
-   "at": "2026-11-17T05:04+00:00"
+   "at": "2026-11-17T19:51+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-17T05:04+00:00"
+   "at": "2026-11-17T19:51+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 4,
-   "at": "2026-11-17T05:04+00:00"
+   "at": "2026-11-17T19:51+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-17T05:04+00:00",
+   "at": "2026-11-17T19:51+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -35,17 +35,21 @@
     },
     "fl-turnpike": {
      "ok": false,
-     "error": "HTTPError: 500 Server Error: Internal Server Error for url: https://floridasturnpike.com/?p=925"
+     "error": "no API key",
+     "chars": 3800,
+     "links": 62
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
+     "error": "no API key",
+     "chars": 2906,
+     "links": 0
     },
     "fl-swfwmd": {
      "ok": false,
      "error": "no API key",
      "chars": 1560,
-     "links": 8
+     "links": 7
     },
     "fl-sfwmd": {
      "ok": false,
@@ -62,8 +66,8 @@
     "us-irs": {
      "ok": false,
      "error": "no API key",
-     "chars": 2667,
-     "links": 14
+     "chars": 2271,
+     "links": 13
     },
     "us-treasury-rp": {
      "ok": false,
@@ -782,7 +786,7 @@
    "sale_date": null,
    "comment_deadline": null,
    "published": null,
-   "summary": "Initial Call for Offers Due 11/12/2026 Acquire a rare large-format, institutional-scale distribution facility within Salt Lake City\u2019s active west-side industrial/logistics corridor. Located at 6020 W 300 S, the Property totals 833,230 \u00b1 square feet on 46.782 \u00b1 acres and offers the scale, infrastructure, and functionality sought by major logistics, distribution, and fulfillment operations. Featuring 36-foot clear heights, 156 dock-high doors, 4,000 amps of heavy power, and a 210-foot truck court, the facility provides an exceptional platform for high-throughput users. Surrounded by established ",
+   "summary": "Acquire a rare large-format, institutional-scale distribution facility within Salt Lake City\u2019s active west-side industrial/logistics corridor. Located at 6020 W 300 S, the Property totals 833,230 \u00b1 square feet on 46.782 \u00b1 acres and offers the scale, infrastructure, and functionality sought by major logistics, distribution, and fulfillment operations. Featuring 36-foot clear heights, 156 dock-high doors, 4,000 amps of heavy power, and a 210-foot truck court, the facility provides an exceptional platform for high-throughput users. Surrounded by established distribution operations, the Property i",
    "lat": 40.749441,
    "lon": -111.981537,
    "loc_precision": "zip",
