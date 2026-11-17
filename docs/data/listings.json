@@ -1,10 +1,25 @@
 {
- "updated": "2026-11-16T21:21+00:00",
+ "updated": "2026-11-17T05:04+00:00",
  "sources": {
+  "federal_register": {
+   "ok": true,
+   "count": 11,
+   "at": "2026-11-17T05:04+00:00"
+  },
+  "gsa": {
+   "ok": true,
+   "count": 12,
+   "at": "2026-11-17T05:04+00:00"
+  },
+  "energynet": {
+   "ok": true,
+   "count": 4,
+   "at": "2026-11-17T05:04+00:00"
+  },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-16T21:21+00:00",
+   "at": "2026-11-17T05:04+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -20,19 +35,17 @@
     },
     "fl-turnpike": {
      "ok": false,
-     "error": "no API key",
-     "chars": 3800,
-     "links": 62
+     "error": "HTTPError: 500 Server Error: Internal Server Error for url: https://floridasturnpike.com/?p=925"
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "no API key",
-     "chars": 2906,
-     "links": 0
+     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
     },
     "fl-swfwmd": {
      "ok": false,
-     "error": "TimeoutError: Page.goto: Timeout 90000ms exceeded.\nCall log:\n  - navigating to \"https://www.swfwmd.state.fl.us/business/land-sale\", waiting until \"networkidle\"\n"
+     "error": "no API key",
+     "chars": 1560,
+     "links": 8
     },
     "fl-sfwmd": {
      "ok": false,
@@ -52,12 +65,6 @@
      "chars": 2667,
      "links": 14
     },
-    "us-treasury": {
-     "ok": false,
-     "error": "no API key",
-     "chars": 50,
-     "links": 7
-    },
     "us-treasury-rp": {
      "ok": false,
      "error": "no API key",
@@ -66,7 +73,9 @@
     },
     "az-asld": {
      "ok": false,
-     "error": "TimeoutError: Page.goto: Timeout 90000ms exceeded.\nCall log:\n  - navigating to \"https://land.az.gov/upcoming-auctions\", waiting until \"networkidle\"\n"
+     "error": "no API key",
+     "chars": 47,
+     "links": 1
     },
     "az-adot": {
      "ok": false,
@@ -103,35 +112,8 @@
      "error": "no API key",
      "chars": 2282,
      "links": 7
-    },
-    "govdeals-re": {
-     "ok": false,
-     "error": "no API key",
-     "chars": 215,
-     "links": 0
-    },
-    "bid4assets": {
-     "ok": false,
-     "error": "no API key",
-     "chars": 205,
-     "links": 0
     }
    }
-  },
-  "federal_register": {
-   "ok": true,
-   "count": 11,
-   "at": "2026-11-16T20:22+00:00"
-  },
-  "gsa": {
-   "ok": true,
-   "count": 12,
-   "at": "2026-11-16T20:00+00:00"
-  },
-  "energynet": {
-   "ok": true,
-   "count": 4,
-   "at": "2026-11-16T20:00+00:00"
   }
  },
  "listings": [
@@ -160,12 +142,12 @@
    "extra": {},
    "id": "98a3ffd0f27c",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -192,12 +174,12 @@
    "extra": {},
    "id": "879a68149301",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -224,12 +206,12 @@
    "extra": {},
    "id": "6bc0356ffed4",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -256,12 +238,12 @@
    "extra": {},
    "id": "6ab78af8e873",
    "price_per_acre": 1099.74,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -288,12 +270,12 @@
    "extra": {},
    "id": "fc7d1fb09d8e",
    "price_per_acre": 675.0,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -320,12 +302,12 @@
    "extra": {},
    "id": "dc9c8204c819",
    "price_per_acre": 546.88,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -352,12 +334,12 @@
    "extra": {},
    "id": "9616772efe34",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -384,12 +366,12 @@
    "extra": {},
    "id": "f794d405dd62",
    "price_per_acre": 105416.67,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -416,12 +398,12 @@
    "extra": {},
    "id": "0002a8583b85",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -448,12 +430,12 @@
    "extra": {},
    "id": "0f8210eac62b",
    "price_per_acre": 368.5,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "federal_register",
@@ -480,12 +462,12 @@
    "extra": {},
    "id": "a41e98cc5dcf",
    "price_per_acre": 7981.22,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "BLM notice"
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -517,12 +499,12 @@
    },
    "id": "a23b711ca571",
    "price_per_acre": 861538.46,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -554,12 +536,12 @@
    },
    "id": "60f409962d62",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -591,12 +573,12 @@
    },
    "id": "cfe6e071af51",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -628,12 +610,12 @@
    },
    "id": "a306d93bf396",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -665,12 +647,12 @@
    },
    "id": "db1f9f556e9e",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -702,12 +684,12 @@
    },
    "id": "63cc6baabc80",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -739,12 +721,12 @@
    },
    "id": "1066680b5d37",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -776,12 +758,12 @@
    },
    "id": "0ba474abdd4e",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -813,12 +795,12 @@
    },
    "id": "21d05b3dc52e",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -850,12 +832,12 @@
    },
    "id": "faa3bae284d6",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -887,12 +869,12 @@
    },
    "id": "74512251bb36",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "gsa",
@@ -924,12 +906,12 @@
    },
    "id": "94d71dae41c5",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "federal",
    "category": "surplus",
-   "source_name": "GSA"
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "energynet",
@@ -948,7 +930,7 @@
    "sale_date": "2026-11-18",
    "comment_deadline": null,
    "published": "2026-09-02",
-   "summary": "Township 21 South, Range 1 West, SLB&M Section 9: E1/2SE1/4 (portion east of the Piute Canal) Section 10: SW1/4 (survey pending)",
+   "summary": "Township 21 South, Range 1 West, SLB&M Section 9: E1/2SE1/4 (portion east of the Piute Canal) Section 10: SW1/4 (survey completed)",
    "lat": 38.991472800000004,
    "lon": -111.9071252,
    "loc_precision": "parcel",
@@ -1067,12 +1049,12 @@
    },
    "id": "dda4f73af2c2",
    "price_per_acre": 3786.5,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "state",
    "category": "surplus",
-   "source_name": "EfficientMarkets"
+   "source_name": "EfficientMarkets",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "energynet",
@@ -2732,12 +2714,12 @@
    },
    "id": "4a840beb21e1",
    "price_per_acre": 5644.21,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "state",
    "category": "surplus",
-   "source_name": "EfficientMarkets"
+   "source_name": "EfficientMarkets",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "energynet",
@@ -74601,12 +74583,12 @@
    },
    "id": "8ed9c9921504",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "state",
    "category": "surplus",
-   "source_name": "EfficientMarkets"
+   "source_name": "EfficientMarkets",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "energynet",
@@ -74712,12 +74694,12 @@
    },
    "id": "b16c61f9caaa",
    "price_per_acre": null,
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-16",
-   "removed": false,
    "level": "state",
    "category": "surplus",
-   "source_name": "EfficientMarkets"
+   "source_name": "EfficientMarkets",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-17",
+   "removed": false
   },
   {
    "source": "energynet",
