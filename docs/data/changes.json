@@ -1,5 +1,14 @@
 [
  {
+  "date": "2026-11-18",
+  "kind": "Price change",
+  "detail": "price: \u2014 \u2192 2750000.0; sale_date: \u2014 \u2192 2026-12-21",
+  "id": "cfe6e071af51",
+  "title": "Starting Bid",
+  "state": "MO",
+  "url": "https://realestatesales.gov/asset-details/?property_id=101"
+ },
+ {
   "date": "2026-11-16",
   "kind": "Updated",
   "detail": "stage: Notice of Realty Action \u2192 Older notice (check status)",
