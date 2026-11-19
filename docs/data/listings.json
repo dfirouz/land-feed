@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-19T04:13+00:00",
+ "updated": "2026-11-19T19:29+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
-   "count": 11,
-   "at": "2026-11-19T04:13+00:00"
+   "count": 12,
+   "at": "2026-11-19T19:29+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-19T04:13+00:00"
+   "at": "2026-11-19T19:29+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-19T04:13+00:00"
+   "at": "2026-11-19T19:29+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-19T04:13+00:00",
+   "at": "2026-11-19T19:29+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -41,7 +41,9 @@
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
+     "error": "no API key",
+     "chars": 2906,
+     "links": 0
     },
     "fl-swfwmd": {
      "ok": false,
@@ -119,6 +121,38 @@
   }
  },
  "listings": [
+  {
+   "source": "federal_register",
+   "source_id": "2026-23587",
+   "title": "Realty Action: Modified Competitive Sale of 20 Parcels of Public Land in Clark County, Nevada; Modification of Recreation and Public Purposes Act Classification",
+   "url": "https://www.federalregister.gov/documents/2026/11/19/2026-23587/realty-action-modified-competitive-sale-of-20-parcels-of-public-land-in-clark-county-nevada",
+   "agency": "BLM",
+   "state": "NV",
+   "county": "Clark County",
+   "city": null,
+   "acres": 200.64,
+   "price": null,
+   "price_type": null,
+   "sale_type": "Modified competitive",
+   "stage": "Notice of Realty Action",
+   "sale_date": null,
+   "comment_deadline": "2027-01-04",
+   "published": "2026-11-19",
+   "summary": "The Bureau of Land Management (BLM) proposes to offer 20 parcels of public land, totaling 200.64 acres in the Las Vegas Valley (Valley), by modified competitive sale at no less than each parcel's fair market value (FMV) pursuant to the Southern Nevada Public Land Management Act of 1998 (SNPLMA), as amended. The sale would be processed in conformance with applicable provisions of the Federal Land Policy and Management Act of 1976 (FLPMA) and BLM regulations. A 4.88- acre parcel proposed for inclusion in the sale was previously part of Recreation and Public Purposes (R&PP) Act lease N-75746. At ",
+   "lat": 36.21413,
+   "lon": -115.014398,
+   "loc_precision": "county",
+   "geometry": null,
+   "extra": {},
+   "id": "67ac64c280ca",
+   "price_per_acre": null,
+   "level": "federal",
+   "category": "surplus",
+   "source_name": "BLM notice",
+   "first_seen": "2026-11-19",
+   "last_seen": "2026-11-19",
+   "removed": false
+  },
   {
    "source": "federal_register",
    "source_id": "2026-23080",
