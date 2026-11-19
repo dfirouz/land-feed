@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-18T19:29+00:00",
+ "updated": "2026-11-19T04:13+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 11,
-   "at": "2026-11-18T19:29+00:00"
+   "at": "2026-11-19T04:13+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-18T19:29+00:00"
+   "at": "2026-11-19T04:13+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-18T19:29+00:00"
+   "at": "2026-11-19T04:13+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-18T19:29+00:00",
+   "at": "2026-11-19T04:13+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -41,9 +41,7 @@
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "no API key",
-     "chars": 2906,
-     "links": 0
+     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
     },
     "fl-swfwmd": {
      "ok": false,
@@ -150,7 +148,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -182,7 +180,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -214,7 +212,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -246,7 +244,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -278,7 +276,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -310,7 +308,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -342,7 +340,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -374,7 +372,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -406,7 +404,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -438,7 +436,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -470,7 +468,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -507,7 +505,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -544,7 +542,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -581,7 +579,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -618,7 +616,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -655,7 +653,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -692,7 +690,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -729,7 +727,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -766,7 +764,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -803,7 +801,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -840,7 +838,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -877,7 +875,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -914,7 +912,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -72783,7 +72781,7 @@
    "category": "surplus",
    "source_name": "EfficientMarkets",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
@@ -72894,7 +72892,7 @@
    "category": "surplus",
    "source_name": "EfficientMarkets",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-18",
+   "last_seen": "2026-11-19",
    "removed": false
   },
   {
