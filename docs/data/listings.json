@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-19T19:29+00:00",
+ "updated": "2026-11-20T03:58+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-19T19:29+00:00"
+   "at": "2026-11-20T03:58+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-19T19:29+00:00"
+   "at": "2026-11-20T03:58+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-19T19:29+00:00"
+   "at": "2026-11-20T03:58+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-19T19:29+00:00",
+   "at": "2026-11-20T03:58+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -41,9 +41,7 @@
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "no API key",
-     "chars": 2906,
-     "links": 0
+     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
     },
     "fl-swfwmd": {
      "ok": false,
@@ -122,6 +120,43 @@
  },
  "listings": [
   {
+   "source": "gsa",
+   "source_id": "103",
+   "title": "Exira Repeater Site",
+   "url": "https://realestatesales.gov/asset-details/?property_id=103",
+   "agency": "GSA",
+   "state": "IA",
+   "county": null,
+   "city": "Exira",
+   "acres": 5.06,
+   "price": null,
+   "price_type": null,
+   "sale_type": "Online Auction \u00b7 Land/Lots",
+   "stage": "Coming Soon",
+   "sale_date": null,
+   "comment_deadline": null,
+   "published": null,
+   "summary": "COMING SOON! Looking for a private, high-ground outpost with a history of connectivity? This former repeater site near Exira offers a rare opportunity to own a piece of Audubon County\u2019s high country. With established access off Heron Avenue, it\u2019s an ideal canvas for a unique off-grid getaway, a specialized hobbyist's station, or a small-scale utility site. Enjoy expansive views of the Iowa landscape from one of the area's most strategic vantage points. Discover a rare opportunity to acquire a specialized piece of infrastructure in the heart of Audubon County. Located at the high-point coordina",
+   "lat": 41.592177,
+   "lon": -94.841945,
+   "loc_precision": "zip",
+   "geometry": null,
+   "extra": {
+    "address": "Heron Avenue",
+    "zip": "50076",
+    "property_type": "Land/Lots",
+    "auction_window": ""
+   },
+   "id": "7490465b61f7",
+   "price_per_acre": null,
+   "level": "federal",
+   "category": "surplus",
+   "source_name": "GSA",
+   "first_seen": "2026-11-20",
+   "last_seen": "2026-11-20",
+   "removed": false
+  },
+  {
    "source": "federal_register",
    "source_id": "2026-23587",
    "title": "Realty Action: Modified Competitive Sale of 20 Parcels of Public Land in Clark County, Nevada; Modification of Recreation and Public Purposes Act Classification",
@@ -150,7 +185,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-19",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -182,7 +217,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -214,7 +249,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -246,7 +281,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -278,7 +313,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -310,7 +345,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -342,7 +377,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -358,7 +393,7 @@
    "price": null,
    "price_type": null,
    "sale_type": "Direct (non-competitive)",
-   "stage": "Notice of Realty Action",
+   "stage": "Older notice (check status)",
    "sale_date": null,
    "comment_deadline": "2026-05-08",
    "published": "2026-03-24",
@@ -374,7 +409,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -406,7 +441,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -438,7 +473,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -470,7 +505,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -502,7 +537,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -539,7 +574,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -576,7 +611,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -613,7 +648,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -650,7 +685,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -687,7 +722,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -724,7 +759,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -761,7 +796,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -798,7 +833,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -835,7 +870,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -872,7 +907,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -909,44 +944,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
-   "removed": false
-  },
-  {
-   "source": "gsa",
-   "source_id": "79",
-   "title": "Laurel Street Portfolio, Beverly, MA",
-   "url": "https://realestatesales.gov/asset-details/?property_id=79",
-   "agency": "GSA",
-   "state": "MA",
-   "county": null,
-   "city": "Beverly",
-   "acres": 5.3,
-   "price": null,
-   "price_type": null,
-   "sale_type": "Online Auction \u00b7 Residential",
-   "stage": "Coming Soon",
-   "sale_date": null,
-   "comment_deadline": null,
-   "published": null,
-   "summary": "Coming Soon! Rare opportunity to purchase a turnkey residential compound in Beverly, MA Available for the first time for private acquisition, this residential enclave represents the ultimate opportunity to acquire a 'horizontal multifamily' property on Boston's North Shore. This former Coast Guard housing site features 16 fully detached, 1,368 s.f. single-level ranch homes (3-bed, 1-bath) situated on a contiguous 5.36-acre lot. The asset combines a low density setting with a highly desirable location just half a mile from the North Beverly Train Station. Property Highlights IFB and Other Docum",
-   "lat": 42.570442,
-   "lon": -70.867693,
-   "loc_precision": "zip",
-   "geometry": null,
-   "extra": {
-    "address": "40-55 Laurel St",
-    "zip": "01915",
-    "property_type": "Residential",
-    "auction_window": ""
-   },
-   "id": "94d71dae41c5",
-   "price_per_acre": null,
-   "level": "federal",
-   "category": "surplus",
-   "source_name": "GSA",
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -72815,7 +72813,7 @@
    "category": "surplus",
    "source_name": "EfficientMarkets",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
   },
   {
@@ -72926,8 +72924,45 @@
    "category": "surplus",
    "source_name": "EfficientMarkets",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-19",
+   "last_seen": "2026-11-20",
    "removed": false
+  },
+  {
+   "source": "gsa",
+   "source_id": "79",
+   "title": "Laurel Street Portfolio, Beverly, MA",
+   "url": "https://realestatesales.gov/asset-details/?property_id=79",
+   "agency": "GSA",
+   "state": "MA",
+   "county": null,
+   "city": "Beverly",
+   "acres": 5.3,
+   "price": null,
+   "price_type": null,
+   "sale_type": "Online Auction \u00b7 Residential",
+   "stage": "Coming Soon",
+   "sale_date": null,
+   "comment_deadline": null,
+   "published": null,
+   "summary": "Coming Soon! Rare opportunity to purchase a turnkey residential compound in Beverly, MA Available for the first time for private acquisition, this residential enclave represents the ultimate opportunity to acquire a 'horizontal multifamily' property on Boston's North Shore. This former Coast Guard housing site features 16 fully detached, 1,368 s.f. single-level ranch homes (3-bed, 1-bath) situated on a contiguous 5.36-acre lot. The asset combines a low density setting with a highly desirable location just half a mile from the North Beverly Train Station. Property Highlights IFB and Other Docum",
+   "lat": 42.570442,
+   "lon": -70.867693,
+   "loc_precision": "zip",
+   "geometry": null,
+   "extra": {
+    "address": "40-55 Laurel St",
+    "zip": "01915",
+    "property_type": "Residential",
+    "auction_window": ""
+   },
+   "id": "94d71dae41c5",
+   "price_per_acre": null,
+   "level": "federal",
+   "category": "surplus",
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-19",
+   "removed": true
   },
   {
    "source": "energynet",

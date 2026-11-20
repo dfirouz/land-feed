@@ -1,5 +1,32 @@
 [
  {
+  "date": "2026-11-20",
+  "kind": "Updated",
+  "detail": "stage: Notice of Realty Action \u2192 Older notice (check status)",
+  "id": "9616772efe34",
+  "title": "Direct Sale of Public Land for Affordable Housing Purposes in the City of Henderson, Nevada",
+  "state": "NV",
+  "url": "https://www.federalregister.gov/documents/2026/03/24/2026-05669/direct-sale-of-public-land-for-affordable-housing-purposes-in-the-city-of-henderson-nevada"
+ },
+ {
+  "date": "2026-11-20",
+  "kind": "New",
+  "detail": "",
+  "id": "7490465b61f7",
+  "title": "Exira Repeater Site",
+  "state": "IA",
+  "url": "https://realestatesales.gov/asset-details/?property_id=103"
+ },
+ {
+  "date": "2026-11-20",
+  "kind": "Removed",
+  "detail": "No longer listed",
+  "id": "94d71dae41c5",
+  "title": "Laurel Street Portfolio, Beverly, MA",
+  "state": "MA",
+  "url": "https://realestatesales.gov/asset-details/?property_id=79"
+ },
+ {
   "date": "2026-11-19",
   "kind": "New",
   "detail": "",
