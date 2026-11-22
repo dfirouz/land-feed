@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-22T03:10+00:00",
+ "updated": "2026-11-22T18:30+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-22T03:10+00:00"
+   "at": "2026-11-22T18:30+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-22T03:10+00:00"
+   "at": "2026-11-22T18:30+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-22T03:10+00:00"
+   "at": "2026-11-22T18:30+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-22T03:10+00:00",
+   "at": "2026-11-22T18:30+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -41,7 +41,9 @@
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
+     "error": "no API key",
+     "chars": 2906,
+     "links": 0
     },
     "fl-swfwmd": {
      "ok": false,
@@ -99,7 +101,9 @@
     },
     "mi-dnr": {
      "ok": false,
-     "error": "TimeoutError: Page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://www.michigan.gov/LandForSale\", waiting until \"domcontentloaded\"\n"
+     "error": "no API key",
+     "chars": 3171,
+     "links": 15
     },
     "ok-odot": {
      "ok": false,
