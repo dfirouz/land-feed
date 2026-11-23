@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-23T03:44+00:00",
+ "updated": "2026-11-23T22:38+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-23T03:44+00:00"
+   "at": "2026-11-23T22:38+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-23T03:44+00:00"
+   "at": "2026-11-23T22:38+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-23T03:44+00:00"
+   "at": "2026-11-23T22:38+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-23T03:44+00:00",
+   "at": "2026-11-23T22:38+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -41,7 +41,9 @@
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
+     "error": "no API key",
+     "chars": 2906,
+     "links": 0
     },
     "fl-swfwmd": {
      "ok": false,
@@ -76,8 +78,8 @@
     "az-asld": {
      "ok": false,
      "error": "no API key",
-     "chars": 47,
-     "links": 1
+     "chars": 245,
+     "links": 2
     },
     "az-adot": {
      "ok": false,
@@ -88,8 +90,8 @@
     "ca-caltrans": {
      "ok": false,
      "error": "no API key",
-     "chars": 1849,
-     "links": 30
+     "chars": 1321,
+     "links": 27
     },
     "mn-dnr": {
      "ok": false,
@@ -875,43 +877,6 @@
   },
   {
    "source": "gsa",
-   "source_id": "69",
-   "title": "Former Sausalito Machine Shop",
-   "url": "https://realestatesales.gov/asset-details/?property_id=69",
-   "agency": "GSA",
-   "state": "CA",
-   "county": null,
-   "city": "Sausalito",
-   "acres": 1.71,
-   "price": null,
-   "price_type": null,
-   "sale_type": "Online Auction \u00b7 Industrial",
-   "stage": "Coming Soon",
-   "sale_date": null,
-   "comment_deadline": null,
-   "published": null,
-   "summary": "Coming Soon! Extraordinary Redevelopment Opportunity in Sausalito, CA! Located at 25 Liberty Ship Way, Sausalito CA, mere yards from Richardson Bay. The Property contains the two-story, 37,800 sq. ft. wooden frame Machine Shop building and a 2,500 sq. ft. metal Butler Building. The parcel is flat and irregular shaped and totals 1.719 +/- acres. Property Highlights IFB and Other Documents Property Highlights Property Type: Mixed Use Square Footage: 37800 Year Built: 1945 Lot Size: 1.71 Asset Type: Industrial Total Buildings: 2 Case Number: 9- CA-0805-AE Listed By Chelsey Battaglia (415) 730-809",
-   "lat": 37.837347,
-   "lon": -122.527482,
-   "loc_precision": "zip",
-   "geometry": null,
-   "extra": {
-    "address": "25 Liberty Ship Way",
-    "zip": "94965",
-    "property_type": "Industrial",
-    "auction_window": ""
-   },
-   "id": "faa3bae284d6",
-   "price_per_acre": null,
-   "level": "federal",
-   "category": "surplus",
-   "source_name": "GSA",
-   "first_seen": "2026-11-16",
-   "last_seen": "2026-11-23",
-   "removed": false
-  },
-  {
-   "source": "gsa",
    "source_id": "43",
    "title": "West Broad Street Downtown Building",
    "url": "https://realestatesales.gov/asset-details/?property_id=43",
@@ -939,6 +904,43 @@
     "auction_window": ""
    },
    "id": "74512251bb36",
+   "price_per_acre": null,
+   "level": "federal",
+   "category": "surplus",
+   "source_name": "GSA",
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-23",
+   "removed": false
+  },
+  {
+   "source": "gsa",
+   "source_id": "69",
+   "title": "Former Sausalito Machine Shop",
+   "url": "https://realestatesales.gov/asset-details/?property_id=69",
+   "agency": "GSA",
+   "state": "CA",
+   "county": null,
+   "city": "Sausalito",
+   "acres": 1.71,
+   "price": null,
+   "price_type": null,
+   "sale_type": "Online Auction \u00b7 Industrial",
+   "stage": "Coming Soon",
+   "sale_date": null,
+   "comment_deadline": null,
+   "published": null,
+   "summary": "Coming Soon! Extraordinary Redevelopment Opportunity in Sausalito, CA! Located at 25 Liberty Ship Way, Sausalito CA, mere yards from Richardson Bay. The Property contains the two-story, 37,800 sq. ft. wooden frame Machine Shop building and a 2,500 sq. ft. metal Butler Building. The parcel is flat and irregular shaped and totals 1.719 +/- acres. Property Highlights IFB and Other Documents Property Highlights Property Type: Mixed Use Square Footage: 37800 Year Built: 1945 Lot Size: 1.71 Asset Type: Industrial Total Buildings: 2 Case Number: 9- CA-0805-AE Listed By Chelsey Battaglia (415) 730-809",
+   "lat": 37.837347,
+   "lon": -122.527482,
+   "loc_precision": "zip",
+   "geometry": null,
+   "extra": {
+    "address": "25 Liberty Ship Way",
+    "zip": "94965",
+    "property_type": "Industrial",
+    "auction_window": ""
+   },
+   "id": "faa3bae284d6",
    "price_per_acre": null,
    "level": "federal",
    "category": "surplus",
