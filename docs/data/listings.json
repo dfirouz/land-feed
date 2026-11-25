@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-25T05:26+00:00",
+ "updated": "2026-11-25T20:28+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-25T05:26+00:00"
+   "at": "2026-11-25T20:28+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-25T05:26+00:00"
+   "at": "2026-11-25T20:28+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-25T05:26+00:00"
+   "at": "2026-11-25T20:28+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-25T05:26+00:00",
+   "at": "2026-11-25T20:28+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -35,13 +35,13 @@
     },
     "fl-turnpike": {
      "ok": false,
-     "error": "no API key",
-     "chars": 3800,
-     "links": 62
+     "error": "HTTPError: 500 Server Error: Internal Server Error for url: https://floridasturnpike.com/?p=925"
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
+     "error": "no API key",
+     "chars": 2906,
+     "links": 0
     },
     "fl-swfwmd": {
      "ok": false,
@@ -631,7 +631,7 @@
    "sale_date": "2026-12-21",
    "comment_deadline": null,
    "published": null,
-   "summary": "Prime Platte County Land Opportunity: 1,270.07 Acres of Endless Potential Uncover an extraordinary acquisition opportunity in northwest Missouri: approximately 1,270.07 acres of rich, prime bottomland nestled along the eastern bank of the Missouri River. Offering over two miles of magnificent river frontage and levee protection, this expansive tract sits directly across from historic Fort Leavenworth and the City of Leavenworth, Kansas. Surrounded by majestic loess bluffs, agricultural expanses, and vibrant natural timber, the setting delivers exceptional privacy, natural beauty, and unmatched",
+   "summary": "Open House #1: December 2nd, 2026 at 10:00 am to 2:00 pm. Access will be at the northern entrance off of Highway 92. Everyone accessing the site will need to present the Liability Release Form located in the IFB and Other Documents to the BOP representative conducting the Open House. Prime Platte County Land Opportunity: 1,270.07 Acres of Endless Potential Uncover an extraordinary acquisition opportunity in northwest Missouri: approximately 1,270.07 acres of rich, prime bottomland nestled along the eastern bank of the Missouri River. Offering over two miles of magnificent river frontage and le",
    "lat": 39.3638,
    "lon": -94.793302,
    "loc_precision": "zip",
