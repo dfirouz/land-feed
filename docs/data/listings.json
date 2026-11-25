@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-24T21:11+00:00",
+ "updated": "2026-11-25T05:26+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-24T21:11+00:00"
+   "at": "2026-11-25T05:26+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-24T21:11+00:00"
+   "at": "2026-11-25T05:26+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-24T21:11+00:00"
+   "at": "2026-11-25T05:26+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-24T21:11+00:00",
+   "at": "2026-11-25T05:26+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -35,13 +35,13 @@
     },
     "fl-turnpike": {
      "ok": false,
-     "error": "HTTPError: 500 Server Error: Internal Server Error for url: https://floridasturnpike.com/?p=925"
+     "error": "no API key",
+     "chars": 3800,
+     "links": 62
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "no API key",
-     "chars": 2906,
-     "links": 0
+     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
     },
     "fl-swfwmd": {
      "ok": false,
@@ -153,7 +153,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-20",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -185,7 +185,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-19",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -217,7 +217,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -249,7 +249,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -281,7 +281,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -313,7 +313,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -345,7 +345,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -377,7 +377,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -409,7 +409,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -441,7 +441,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -473,7 +473,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -505,7 +505,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -537,7 +537,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -574,7 +574,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -611,7 +611,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -648,7 +648,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -685,7 +685,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -722,7 +722,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -759,7 +759,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -796,7 +796,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -833,7 +833,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -870,7 +870,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -907,7 +907,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -944,7 +944,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -72813,7 +72813,7 @@
    "category": "surplus",
    "source_name": "EfficientMarkets",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
@@ -72924,7 +72924,7 @@
    "category": "surplus",
    "source_name": "EfficientMarkets",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-24",
+   "last_seen": "2026-11-25",
    "removed": false
   },
   {
