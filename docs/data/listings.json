@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-26T05:02+00:00",
+ "updated": "2026-11-26T20:11+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-26T05:02+00:00"
+   "at": "2026-11-26T20:11+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-26T05:02+00:00"
+   "at": "2026-11-26T20:11+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-26T05:02+00:00"
+   "at": "2026-11-26T20:11+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-26T05:02+00:00",
+   "at": "2026-11-26T20:11+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -35,11 +35,15 @@
     },
     "fl-turnpike": {
      "ok": false,
-     "error": "HTTPError: 500 Server Error: Internal Server Error for url: https://floridasturnpike.com/?p=925"
+     "error": "no API key",
+     "chars": 3800,
+     "links": 62
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
+     "error": "no API key",
+     "chars": 2906,
+     "links": 0
     },
     "fl-swfwmd": {
      "ok": false,
@@ -292,8 +296,8 @@
    "county": "Emery County",
    "city": null,
    "acres": 157.31,
-   "price": 173000.0,
-   "price_type": "FMV / minimum bid",
+   "price": null,
+   "price_type": null,
    "sale_type": "Direct (non-competitive)",
    "stage": "Notice of Realty Action",
    "sale_date": null,
@@ -306,7 +310,7 @@
    "geometry": null,
    "extra": {},
    "id": "6ab78af8e873",
-   "price_per_acre": 1099.74,
+   "price_per_acre": null,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
@@ -324,8 +328,8 @@
    "county": "Converse County",
    "city": null,
    "acres": 800.0,
-   "price": 540000.0,
-   "price_type": "FMV / minimum bid",
+   "price": null,
+   "price_type": null,
    "sale_type": "Direct (non-competitive)",
    "stage": "Notice of Realty Action",
    "sale_date": null,
@@ -338,7 +342,7 @@
    "geometry": null,
    "extra": {},
    "id": "fc7d1fb09d8e",
-   "price_per_acre": 675.0,
+   "price_per_acre": null,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
@@ -356,8 +360,8 @@
    "county": "La Paz County",
    "city": null,
    "acres": 640.0,
-   "price": 350000.0,
-   "price_type": "FMV / minimum bid",
+   "price": null,
+   "price_type": null,
    "sale_type": "Direct (non-competitive)",
    "stage": "Notice of Realty Action",
    "sale_date": null,
@@ -370,7 +374,7 @@
    "geometry": null,
    "extra": {},
    "id": "dc9c8204c819",
-   "price_per_acre": 546.88,
+   "price_per_acre": null,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
@@ -420,8 +424,8 @@
    "county": null,
    "city": null,
    "acres": 480.0,
-   "price": 50600000.0,
-   "price_type": "FMV / minimum bid",
+   "price": null,
+   "price_type": null,
    "sale_type": "Direct (non-competitive)",
    "stage": "Older notice (check status)",
    "sale_date": null,
@@ -434,7 +438,7 @@
    "geometry": null,
    "extra": {},
    "id": "f794d405dd62",
-   "price_per_acre": 105416.67,
+   "price_per_acre": null,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
@@ -484,8 +488,8 @@
    "county": "Lyon County",
    "city": null,
    "acres": 2062.42,
-   "price": 760000.0,
-   "price_type": "FMV / minimum bid",
+   "price": null,
+   "price_type": null,
    "sale_type": "Direct (non-competitive)",
    "stage": "Older notice (check status)",
    "sale_date": null,
@@ -498,7 +502,7 @@
    "geometry": null,
    "extra": {},
    "id": "0f8210eac62b",
-   "price_per_acre": 368.5,
+   "price_per_acre": null,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
@@ -516,8 +520,8 @@
    "county": "Moffat County",
    "city": null,
    "acres": 2.13,
-   "price": 17000.0,
-   "price_type": "FMV / minimum bid",
+   "price": null,
+   "price_type": null,
    "sale_type": "Direct (non-competitive)",
    "stage": "Older notice (check status)",
    "sale_date": null,
@@ -530,7 +534,7 @@
    "geometry": null,
    "extra": {},
    "id": "a41e98cc5dcf",
-   "price_per_acre": 7981.22,
+   "price_per_acre": null,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
