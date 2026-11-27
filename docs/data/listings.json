@@ -1,25 +1,25 @@
 {
- "updated": "2026-11-26T20:11+00:00",
+ "updated": "2026-11-27T05:02+00:00",
  "sources": {
   "federal_register": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-26T20:11+00:00"
+   "at": "2026-11-27T05:02+00:00"
   },
   "gsa": {
    "ok": true,
    "count": 12,
-   "at": "2026-11-26T20:11+00:00"
+   "at": "2026-11-27T05:02+00:00"
   },
   "energynet": {
    "ok": true,
    "count": 2,
-   "at": "2026-11-26T20:11+00:00"
+   "at": "2026-11-27T05:02+00:00"
   },
   "agencies": {
    "ok": true,
    "count": 0,
-   "at": "2026-11-26T20:11+00:00",
+   "at": "2026-11-27T05:02+00:00",
    "agencies": {
     "fl-dep": {
      "ok": false,
@@ -41,9 +41,7 @@
     },
     "fl-swfwmd-gis": {
      "ok": false,
-     "error": "no API key",
-     "chars": 2906,
-     "links": 0
+     "error": "JSONDecodeError: Expecting value: line 3 column 1 (char 4)"
     },
     "fl-swfwmd": {
      "ok": false,
@@ -155,7 +153,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-20",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -187,7 +185,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-19",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -219,7 +217,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -251,7 +249,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -283,7 +281,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -296,8 +294,8 @@
    "county": "Emery County",
    "city": null,
    "acres": 157.31,
-   "price": null,
-   "price_type": null,
+   "price": 173000.0,
+   "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
    "stage": "Notice of Realty Action",
    "sale_date": null,
@@ -310,12 +308,12 @@
    "geometry": null,
    "extra": {},
    "id": "6ab78af8e873",
-   "price_per_acre": null,
+   "price_per_acre": 1099.74,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -328,8 +326,8 @@
    "county": "Converse County",
    "city": null,
    "acres": 800.0,
-   "price": null,
-   "price_type": null,
+   "price": 540000.0,
+   "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
    "stage": "Notice of Realty Action",
    "sale_date": null,
@@ -342,12 +340,12 @@
    "geometry": null,
    "extra": {},
    "id": "fc7d1fb09d8e",
-   "price_per_acre": null,
+   "price_per_acre": 675.0,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -360,10 +358,10 @@
    "county": "La Paz County",
    "city": null,
    "acres": 640.0,
-   "price": null,
-   "price_type": null,
+   "price": 350000.0,
+   "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
-   "stage": "Notice of Realty Action",
+   "stage": "Older notice (check status)",
    "sale_date": null,
    "comment_deadline": "2026-05-15",
    "published": "2026-03-31",
@@ -374,12 +372,12 @@
    "geometry": null,
    "extra": {},
    "id": "dc9c8204c819",
-   "price_per_acre": null,
+   "price_per_acre": 546.88,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -411,7 +409,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -424,8 +422,8 @@
    "county": null,
    "city": null,
    "acres": 480.0,
-   "price": null,
-   "price_type": null,
+   "price": 50600000.0,
+   "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
    "stage": "Older notice (check status)",
    "sale_date": null,
@@ -438,12 +436,12 @@
    "geometry": null,
    "extra": {},
    "id": "f794d405dd62",
-   "price_per_acre": null,
+   "price_per_acre": 105416.67,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -475,7 +473,7 @@
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -488,8 +486,8 @@
    "county": "Lyon County",
    "city": null,
    "acres": 2062.42,
-   "price": null,
-   "price_type": null,
+   "price": 760000.0,
+   "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
    "stage": "Older notice (check status)",
    "sale_date": null,
@@ -502,12 +500,12 @@
    "geometry": null,
    "extra": {},
    "id": "0f8210eac62b",
-   "price_per_acre": null,
+   "price_per_acre": 368.5,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -520,8 +518,8 @@
    "county": "Moffat County",
    "city": null,
    "acres": 2.13,
-   "price": null,
-   "price_type": null,
+   "price": 17000.0,
+   "price_type": "FMV / minimum bid",
    "sale_type": "Direct (non-competitive)",
    "stage": "Older notice (check status)",
    "sale_date": null,
@@ -534,12 +532,12 @@
    "geometry": null,
    "extra": {},
    "id": "a41e98cc5dcf",
-   "price_per_acre": null,
+   "price_per_acre": 7981.22,
    "level": "federal",
    "category": "surplus",
    "source_name": "BLM notice",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -576,7 +574,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -613,7 +611,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -650,7 +648,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -687,7 +685,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -724,7 +722,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -761,7 +759,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -798,7 +796,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -835,7 +833,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -872,7 +870,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -909,7 +907,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -946,7 +944,7 @@
    "category": "surplus",
    "source_name": "GSA",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -72815,7 +72813,7 @@
    "category": "surplus",
    "source_name": "EfficientMarkets",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {
@@ -72926,7 +72924,7 @@
    "category": "surplus",
    "source_name": "EfficientMarkets",
    "first_seen": "2026-11-16",
-   "last_seen": "2026-11-26",
+   "last_seen": "2026-11-27",
    "removed": false
   },
   {

@@ -1,5 +1,59 @@
 [
  {
+  "date": "2026-11-27",
+  "kind": "Price change",
+  "detail": "price: \u2014 \u2192 173000.0",
+  "id": "6ab78af8e873",
+  "title": "Notice of Realty Action: Direct Sale of Public Land in Emery County, Utah",
+  "state": "UT",
+  "url": "https://www.federalregister.gov/documents/2026/05/01/2026-08548/notice-of-realty-action-direct-sale-of-public-land-in-emery-county-utah"
+ },
+ {
+  "date": "2026-11-27",
+  "kind": "Price change",
+  "detail": "price: \u2014 \u2192 540000.0",
+  "id": "fc7d1fb09d8e",
+  "title": "Realty Action: Direct Sale of Public Lands in Converse County, WY",
+  "state": "WY",
+  "url": "https://www.federalregister.gov/documents/2026/04/13/2026-07117/realty-action-direct-sale-of-public-lands-in-converse-county-wy"
+ },
+ {
+  "date": "2026-11-27",
+  "kind": "Price change",
+  "detail": "price: \u2014 \u2192 350000.0; stage: Notice of Realty Action \u2192 Older notice (check status)",
+  "id": "dc9c8204c819",
+  "title": "Notice of Realty Action: Direct Sale of Public Lands in La Paz County, AZ",
+  "state": "AZ",
+  "url": "https://www.federalregister.gov/documents/2026/03/31/2026-06225/notice-of-realty-action-direct-sale-of-public-lands-in-la-paz-county-az"
+ },
+ {
+  "date": "2026-11-27",
+  "kind": "Price change",
+  "detail": "price: \u2014 \u2192 50600000.0",
+  "id": "f794d405dd62",
+  "title": "Direct Sale of the Reversionary Interest in a Recreation and Public Purposes Act Patent of Public Land in Jean, NV (NVNV105861510, Legacy N-101356)",
+  "state": null,
+  "url": "https://www.federalregister.gov/documents/2026/03/11/2026-04724/direct-sale-of-the-reversionary-interest-in-a-recreation-and-public-purposes-act-patent-of-public"
+ },
+ {
+  "date": "2026-11-27",
+  "kind": "Price change",
+  "detail": "price: \u2014 \u2192 760000.0",
+  "id": "0f8210eac62b",
+  "title": "Direct Sale of Public Lands in Lyon County, NV",
+  "state": "NV",
+  "url": "https://www.federalregister.gov/documents/2026/02/23/2026-03464/direct-sale-of-public-lands-in-lyon-county-nv"
+ },
+ {
+  "date": "2026-11-27",
+  "kind": "Price change",
+  "detail": "price: \u2014 \u2192 17000.0",
+  "id": "a41e98cc5dcf",
+  "title": "Notice of Realty Action: Noncompetitive (Direct) Sale of Public Land in Moffat County, CO",
+  "state": "CO",
+  "url": "https://www.federalregister.gov/documents/2026/01/14/2026-00509/notice-of-realty-action-noncompetitive-direct-sale-of-public-land-in-moffat-county-co"
+ },
+ {
   "date": "2026-11-20",
   "kind": "Updated",
   "detail": "stage: Notice of Realty Action \u2192 Older notice (check status)",
